@@ -1,3 +1,28 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/*Sobrescrita bootstrap*/
+.nav-link{
+	padding: .75rem !important;
+}
+
+.navbar-brand{
+	margin-right: 2.5rem;
+}
+
+.bg {
+  background-image: url("../img/bg-main-img.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .bg-azul-maua{
 	background: #004684;
 }
