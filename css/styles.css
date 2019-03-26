@@ -39,18 +39,44 @@ body, html {
 	background: #004684;
 }
 
+.btn-secondary{
+  background-color: #eda407;
+  border-color: transparent;
+}
+
+.btn-secondary:hover{
+  background-color: #f9bc39;
+  border-color: transparent;
+}
+
+.btn-primary{
+  background-color: #004684;
+  border-color: transparent;
+}
+
+.btn-primary:hover{
+  background-color: #006dcc;
+  border-color: transparent;
+}
+
 .btn-welcome{
   font-size: 1.2rem;
+}
+
+.modal-content{
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /*Efeito mouse welcome*/
 
 .scroll-downs {
   right: 0;
-  bottom: 0;
-  
+  bottom: 0;  
   width :34px;
   height: 55px;
+  cursor: pointer;
 }
 .mousey {
   width: 3px;
