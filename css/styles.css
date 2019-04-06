@@ -4,6 +4,10 @@ body, html {
   font-family: 'Raleway', sans-serif;
 }
 
+img {
+  width: 100%;
+}
+
 /*Sobrescrita bootstrap*/
 .nav-link{
 	padding: 1.25rem !important;
@@ -35,8 +39,12 @@ body, html {
   font-weight: 600;
 }
 
-.bg-azul-maua{
-	background: #004684;
+.bg-primary{
+	background: #004684 !important;
+}
+
+.bg-secondary{
+  background: #eda407 !important;
 }
 
 .btn-secondary{
@@ -59,6 +67,10 @@ body, html {
   border-color: transparent;
 }
 
+.text-primary{
+  color: #004684 !important;
+}
+
 .btn-welcome{
   font-size: 1.2rem;
 }
@@ -67,6 +79,29 @@ body, html {
   width: auto;
   margin: 0 auto;
   text-align: center;
+}
+
+.posts-grid {
+    columns: 350px;
+    column-gap: 20px;
+    padding: 20px
+}
+.post {
+  padding: 20px;
+  border-radius: 5px;
+  background: #fff;
+  break-inside: avoid-column;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.post h3{
+  margin-top: .5em;
+  color: #004684;
+}
+
+.post a{
+  color: #eda407;
 }
 
 /*Efeito mouse welcome*/
