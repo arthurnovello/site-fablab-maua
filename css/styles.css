@@ -1,3 +1,106 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+/*Sobrescrita bootstrap*/
+.nav-link{
+	padding: 1.25rem !important;
+  font-size: 1.25rem;
+}
+
+.navbar-brand{
+	margin-right: 2.5rem;
+}
+
+.bg-welcome {
+  background-image: url("../img/bg-main-img.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#div-welcome{
+  bottom: 0;
+}
+
+#p-welcome{
+  font-size: 3rem;
+  line-height: 4rem;
+  font-weight: 600;
+}
+
 .bg-azul-maua{
 	background: #004684;
 }
+
+.btn-secondary{
+  background-color: #eda407;
+  border-color: transparent;
+}
+
+.btn-secondary:hover{
+  background-color: #f9bc39;
+  border-color: transparent;
+}
+
+.btn-primary{
+  background-color: #004684;
+  border-color: transparent;
+}
+
+.btn-primary:hover{
+  background-color: #006dcc;
+  border-color: transparent;
+}
+
+.btn-welcome{
+  font-size: 1.2rem;
+}
+
+.modal-content{
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/*Efeito mouse welcome*/
+
+.scroll-downs {
+  right: 0;
+  bottom: 0;  
+  width :34px;
+  height: 55px;
+  cursor: pointer;
+}
+.mousey {
+  width: 3px;
+  padding: 10px 15px;
+  height: 35px;
+  border: 3px solid #fff;
+  border-radius: 25px;
+  opacity: 0.75;
+  box-sizing: content-box;
+}
+.scroller {
+  width: 4px;
+  height: 10px;
+  border-radius: 25%;
+  background-color: #fff;
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+  animation-iteration-count: infinite;
+}
+@keyframes scroll {
+  0% { opacity: 0; }
+  10% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0;}
+}
+
+/*Fim efeito mouse welcome*/
