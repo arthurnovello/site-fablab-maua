@@ -1,0 +1,32 @@
+{
+  "name": "site-fablab-maua",
+  "version": "1.0.0",
+  "description": "Site do FabLab da Maua",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurnovello/site-fablab-maua.git"
+  },
+  "keywords": [
+    "css",
+    "html",
+    "js",
+    "bootstrap"
+  ],
+  "author": "Arthur Novello | Luca Ezellner | Lucas Marques",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arthurnovello/site-fablab-maua/issues"
+  },
+  "homepage": "https://github.com/arthurnovello/site-fablab-maua#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.1"
+  }
+}
