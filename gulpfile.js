@@ -4,8 +4,8 @@ var gulp = require('gulp'),
     gp_uglify = require('gulp-uglify'),
     watch = require('gulp-watch');
 
-var destination_path = '/Users/lucasmarques/Documents/Docs/Site-Fab-Lab/site-fablab-maua/dist',
-    js_path = '/Users/lucasmarques/Documents/Docs/Site-Fab-Lab/site-fablab-maua/js/*.js';
+var destination_path = 'dist/',
+    js_path = 'js/*.js';
 
 gulp.task('concat', function(){
     return gulp.src(js_path)
