@@ -8,6 +8,20 @@ img {
   width: 100%;
 }
 
+.footer-ul li a{
+  color: #fff !important;
+}
+
+.divisoria{
+  display: block;
+  border: 0 !important;
+  background-color: #eda407;
+  height: 2px;
+  width: 40%;
+  margin-top: 0;
+  float: left;
+}
+
 /*Sobrescrita bootstrap*/
 .nav-link{
 	padding: 1.25rem !important;
@@ -16,6 +30,10 @@ img {
 
 .navbar-brand{
 	margin-right: 2.5rem;
+}
+
+.beneficios{
+  font-size: 18px;
 }
 
 .bg-welcome {
@@ -41,6 +59,14 @@ img {
 
 .bg-primary{
 	background: #004684 !important;
+}
+
+.bg-dark{
+  background: #00293f !important;
+}
+
+.bg-black{
+  background: #181818 !important;
 }
 
 .bg-secondary{
@@ -71,6 +97,10 @@ img {
   color: #004684 !important;
 }
 
+.text-secondary{
+  color: #eda407 !important;
+}
+
 .btn-welcome{
   font-size: 1.2rem;
 }
@@ -84,7 +114,7 @@ img {
 .posts-grid {
     columns: 350px;
     column-gap: 20px;
-    padding: 20px
+    padding: 20px 0 20px 0;
 }
 .post {
   padding: 20px;

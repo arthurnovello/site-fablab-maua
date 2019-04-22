@@ -10,36 +10,34 @@
 </head>
 
 <body>
-	<div class="bg-azul-maua">
-		<nav class="navbar fixed-top navbar-expand-lg navbar-dark container-fluid px-5">
-			<a class="navbar-brand" href="#">
-				<img src="img/fablab-logo.png">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-			 aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Projetos</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Horários</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Agendamento</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Sobre</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-	</div>
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark container-fluid px-5">
+		<a class="navbar-brand" href="#">
+			<img src="img/fablab-logo.png">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Projetos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Horários</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Agendamento</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Sobre</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 
 	<div class="row bg-welcome m-0" id="particles-js">
 		<div class="col-12 col-lg-4 position-absolute px-5 p-0" id="div-welcome">
@@ -77,10 +75,18 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="container-fluid px-5">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="pt-4 second text-primary">Projetos Desenvolvidos</h2>
+				<hr class="divisoria">
+			</div>
+		</div>
+	</div>
+	
 
-	<h2 class="text-center pt-4 second text-primary">Projetos Desenvolvidos</h2>
-
-	<section class="posts-grid">
+	<section class="posts-grid px-5">
 		<article class="post">
 			<img src="img/posts/1.jpg">
 			<h3>Soldas verdes</h3>
@@ -147,6 +153,109 @@
 			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck.</p>
 		</article>
 	</section>
+
+	<div class="container-fluid px-5 mb-3">
+			<section class="row">
+				<div class="col-12">
+					<h2 class="pt-4 second text-primary">Reserve um horário</h2>
+					<hr class="divisoria">
+				</div>
+				<div class="col-12">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">@</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Nome Completo" aria-label="Username" aria-describedby="basic-addon1">
+					</div>
+						
+					<div class="input-group mb-3">
+						<div class="input-group-append">
+							<span class="input-group-text" id="basic-addon2">fablab@exemplo.com</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					</div>
+
+					<div class="input-group mb-3">
+						<div class="input-group-append">
+							<span class="input-group-text" id="basic-addon2">DD/MM/YYYY HH:MM</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Data e horário" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					</div>
+					
+					<label for="basic-url">Informações sobre o projeto</label>
+					<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">Projeto</span>
+					</div>
+					<input type="text" class="form-control" id="basic-url" placeholder="Título do projeto" aria-describedby="basic-addon3">
+					</div>
+					
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Utilização</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01">
+							<option selected>Escolha o que o grupo irá utilizar</option>
+							<option value="1">Impressora 3D</option>
+							<option value="2">Sala de pintura</option>
+							<option value="3">Sala de corte</option>
+						</select>
+					</div>
+				</div>
+				<button type="button" class="btn btn-primary mb-5 px-5 py-2 mx-auto">Enviar</button>
+			</section>
+		</div>
+	
+	<footer class="bg-black pt-4 text-white px-5">
+		<div class="container-fluid text-center text-md-left">
+		<div class="row">
+			<div class="col-md-6 mt-md-0 mt-3 p-0">
+				<h5 class="text-uppercase text-secondary mb-3">Fab Lab - Instituto Mauá de Tecnologia</h5>
+				<p class="mb-0">Campus  São Caetano do Sul</p>
+				<p>Praça Mauá 1 São Caetano do Sul - SP</p>
+				<p class="mb-0">Campus  de São Paulo</p>
+				<p>Pedro de Toledo, 1071</p>
+			</div>
+		<div class="col-md-3 mb-md-0 mb-3">
+			<h5 class="text-uppercase text-secondary">Navegação</h5>
+			<ul class="list-unstyled footer-ul">
+				<li>
+					<a href="#!">Home</a>
+				</li>
+				<li>
+					<a href="#!">Projetos</a>
+				</li>
+				<li>
+					<a href="#!">Horários</a>
+				</li>
+				<li>
+					<a href="#!">Agendamento</a>
+				</li>
+				<li>
+					<a href="#!">Sobre</a>
+				</li>
+			</ul>
+
+			</div>
+			<div class="col-md-3 mb-md-0 mb-3 p-0">
+				<h5 class="text-uppercase text-secondary">Mídias</h5>
+				<ul class="list-unstyled footer-ul">
+					<li>
+						<a href="#!">Instagram</a>
+					</li>
+					<li>
+						<a href="#!">Facebook</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+	</footer>
+
+	
+	<div class="text-center py-2 bg-dark text-white">© 2019
+		<a href="https://maua.br" class="text-white"> Instituto Mauá de Tecnologia</a>
+	</div>
 
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
