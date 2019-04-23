@@ -22,7 +22,8 @@ gulp.task('minify',function(){
 });
 
 gulp.task('watch', function() {
-    gulp.watch(js_path, ['default']);
+    gulp.watch(js_path, gulp.series('default'));
 });
 
+//gulp.task('default',gulp.parallel(['concat','minify']));
 gulp.task('default',gulp.parallel(['concat','minify','watch']));
