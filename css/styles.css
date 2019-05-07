@@ -8,8 +8,36 @@ img {
   width: 100%;
 }
 
+.navbar{
+  transition: all .5s;
+}
+
 .footer-ul li a{
   color: #fff !important;
+}
+
+.scrolled-navbar{
+  background: #004684;
+  height: 80px;
+  transition: all .5s;
+}
+
+.scrolled-navbar a img{
+  transform: scale(.7);
+  transition: all .5s;
+}
+
+.navbar a img{
+  transition: all .5s;
+}
+
+.navbar ul li a{
+  transition: all .5s;
+}
+
+.scrolled-navbar ul li a{
+  font-size: 1rem;
+  transition: all .5s;
 }
 
 .divisoria{
