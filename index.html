@@ -5,8 +5,9 @@
 	<meta charset="UTF-8" content="pt-br">
 	<title>FabLab IMT</title>
 	<link rel="icon" href="img/favicon.png">
-	<!-- <link rel="stylesheet" href="node_modules/get-google-fonts/fonts/fonts.css"> -->
+	<link rel="stylesheet" href="node_modules/get-google-fonts/fonts/fonts.css">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -42,7 +43,7 @@
 
 	<div class="row bg-welcome m-0" id="particles-js">
 		<div class="col-12 col-lg-4 position-absolute px-5 p-0" id="div-welcome">
-			<h1 class="h2 text-white mb-3" id="p-welcome">O maior FabLab de São Paulo está no Instituto Mauá de
+			<h1 class="h2 text-white mb-3" id="p-welcome">O maior Fab Lab de São Paulo está no Instituto Mauá de
 				Tecnologia</h1>
 			<button type="button" class="btn btn-primary mb-5 btn-welcome px-3 py-2" data-toggle="modal" data-target="#exampleModalLong">Horários
 				de Funcionamento</button>
@@ -53,34 +54,23 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-	 aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle">Horários de funcionamento</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body pb-0">
-					<p>Segunda a Sexta: das 8h às 22h</p>
-					<p>Sábado: das 8h às 13h</p>
-					<p>Domingo: fechado</p>
-				</div>
-				<div class="modal-footer justify-content-center">
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Mais Detalhes</button>
-				</div>
+	
+	<div class="container-fluid second">
+		<div class="row px-5">
+			<div class="col-12 p-0">
+				<h2 class="pt-4 text-primary"><i class="far fa-lightbulb"></i> Fab Lab Mauá</h2>
+				<hr class="divisoria">
+			</div>
+			<div class="col-12"></div>
+				<p class="d-block" id="descricao">Bacon ipsum dolor amet ea ex chuck, ut laboris irure sunt. Consectetur aute meatball culpa veniam bresaola. Labore in shoulder, salami drumstick turkey qui nisi anim kielbasa aliqua pork pork loin. Et officia capicola, nulla sausage brisket pariatur enim dolor pork salami consequat pork belly. Id tri-tip mollit esse in tail chicken shank enim laborum cupim aute frankfurter cow. Duis minim veniam jowl. Ullamco shankle magna, cow bresaola rump swine pastrami pancetta officia. Shankle proident sed, in ut venison salami irure cupidatat jerky brisket biltong ribeye.</p>
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="container-fluid px-5">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="pt-4 second text-primary">Projetos Desenvolvidos</h2>
+				<h2 class="pt-4 text-primary"><i class="fas fa-tools"></i> Projetos Desenvolvidos</h2>
 				<hr class="divisoria">
 			</div>
 		</div>
@@ -88,67 +78,67 @@
 	
 
 	<section class="posts-grid px-5">
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/1.jpg">
 			<h3>Soldas verdes</h3>
 			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
 				<a href="">Download projeto 3D</a>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/2.jpg">
 			<h3>Parafusos mágicos</h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.</p>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/3.jpg">
 			<h3>O torque pode mudar tudo!</h3>
 			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck. Sint pork chop.</p>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/4.jpg">
 			<h3>Treinamentos de corte</h3>
 			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/5.jpg">
 			<h3>Eletrônica avançada para iniciantes</h3>
 			<p>Bacon ipsum dolor amet pork brisket nostrud dolore in ut meatball.</p>
 			<a href="">Download projeto 3D</a>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/6.jpg">
 			<h3>Projeto de mão biônica do filme "Eu Robô"</h3>
 			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, sed picanha ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
 				<a href="">Download projeto 3D</a>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/7.jpg">
 			<h3>Benefícios da solda verde</h3>
 			<p>Bacon ipsum dolor amet pork brisket kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
 			<a href="">Download projeto 3D</a>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/8.jpg">
 			<h3>Réplicas do Homem de Ferro</h3>
 			<p>Bacon ipsum dolor amet pork ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/9.jpg">
 			<h3>Aprenda a utilizar a impressora 3D</h3>
 			<p>Bacon ipsum dolor picanha ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/10.jpg">
 			<h3>Cursos de parafusagem avançada</h3>
 			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck.</p>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/11.jpg">
 			<h3>A arte do corte a laser</h3>
 			<p>Bacon ipsum dolor amet pork brisket nostrud dolore. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
 			<a href="">Download projeto 3D</a>
 		</article>
-		<article class="post">
+		<article class="post lax" data-lax-preset="blurOut-5">
 			<img src="img/posts/12.jpg">
 			<h3>Pequenos parafusos, grandes projetos</h3>
 			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck.</p>
@@ -157,11 +147,15 @@
 
 	<div class="container-fluid px-5 mb-3">
 			<section class="row">
-				<div class="col-12">
-					<h2 class="pt-4 second text-primary">Reserve um horário</h2>
-					<hr class="divisoria">
+				<div class="col-6">
+					<h2 class="pt-4 second text-primary"><i class="far fa-clock"></i> Reserve um horário</h2>
+					<hr class="divisoria-6">
 				</div>
-				<div class="col-12">
+				<div class="col-6">
+					<h2 class="pt-4 second text-primary"><i class="fas fa-map-marker-alt"></i> Localização</h2>
+					<hr class="divisoria-6">
+				</div>
+				<div class="col-6">
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="basic-addon1">@</span>
@@ -202,8 +196,19 @@
 							<option value="3">Sala de corte</option>
 						</select>
 					</div>
+					<button type="button" class="btn btn-primary mb-5 px-5 py-2 mx-auto">Enviar</button>
 				</div>
-				<button type="button" class="btn btn-primary mb-5 px-5 py-2 mx-auto">Enviar</button>
+
+				<div class="col-6">
+					<iframe
+						width="100%"
+						height="350px"
+						frameborder="0" style="border:0"
+						src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAH3N3CrD207eeAEONwVzhY-jIP9HnqoZU
+						&q=Instituto+Maua+de+Tecnologia,São+Caetano+do+Sul" allowfullscreen>
+					</iframe>
+				</div>
+				
 			</section>
 		</div>
 	
@@ -252,16 +257,22 @@
 	</footer>
 
 	
-	<div class="text-center py-2 bg-dark text-white">© 2019
-		<a href="https://maua.br" class="text-white"> Instituto Mauá de Tecnologia</a>
+	<div class="text-center py-2 bg-dark text-white d-flex">
+		<a href="https://maua.br" class="text-white mr-auto pl-5">© 2019 Instituto Mauá de Tecnologia</a>
+		<div class="ml-auto pr-5">
+			<a href="https://maua.br" class="text-white"><i class="fab fa-github"></i> Arthur Novello</a>
+			<a href="https://maua.br" class="text-white"><i class="fab fa-github"></i> Luca Miraglia</a>
+			<a href="https://maua.br" class="text-white"><i class="fab fa-github"></i> Lucas Marques</a>
+		</div>
 	</div>
 
 	<!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>	
 	<script src="node_modules/popper.js/dist/popper.min.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="node_modules/lax.js/lib/lax.min.js"></script>
+	<script src="js/scripts.js"></script>
 </body>
 
 </html>

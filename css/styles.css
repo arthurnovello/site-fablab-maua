@@ -8,16 +8,26 @@ img {
   width: 100%;
 }
 
+a:hover{
+  text-decoration: none;
+  color: #eda407 !important;
+  transition: all .2s;
+}
+
+#descricao{
+  font-size: 20px;
+}
+
 .navbar{
   transition: all .5s;
 }
 
 .footer-ul li a{
-  color: #fff !important;
+  color: #fff;
 }
 
 .scrolled-navbar{
-  background: #004684;
+  background: #00293f;
   height: 80px;
   transition: all .5s;
 }
@@ -46,6 +56,16 @@ img {
   background-color: #eda407;
   height: 2px;
   width: 40%;
+  margin-top: 0;
+  float: left;
+}
+
+.divisoria-6{
+  display: block;
+  border: 0 !important;
+  background-color: #eda407;
+  height: 2px;
+  width: 80%;
   margin-top: 0;
   float: left;
 }

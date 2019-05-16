@@ -14,7 +14,7 @@ $(document).ready(function(){
 
     particlesJS("particles-js", {
         particles: {
-            number: { value: 10, density: { enable: true, value_area: 400 } },
+            number: { value: 20, density: { enable: true, value_area: 400 } },
             color: { value: "#ffffff" },
             shape: {
             type: "circle",
@@ -68,10 +68,29 @@ $(document).ready(function(){
         retina_detect: true
     });
 
-    $(".scroll-downs").click(function() {
-        $('html,body').animate({
-            scrollTop: $(".second").offset().top},
-            'slow');
+    lax.setup() // init
+
+	const updateLax = () => {
+		lax.update(window.scrollY)
+		window.requestAnimationFrame(updateLax)
+	}
+
+	window.requestAnimationFrame(updateLax)
+
+    $(".scroll").click(function(e) {
+
+      e.preventDefault();
+      var position;
+      $(this).hasClass('contato') ? position = $(document).height() : position = ($($(this).attr("href")).offset().top)-95;
+      $("body, html").animate({
+        scrollTop: position
+      } /* speed */ );
     });
 
+    $(".scroll-downs").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".second").offset().top-72},
+            'slow');
+    });
+    
 });
