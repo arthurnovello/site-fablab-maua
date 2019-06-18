@@ -14,8 +14,30 @@ a:hover{
   transition: all .2s;
 }
 
-#descricao{
-  font-size: 20px;
+.div-hr-sobre{
+  display: flex;
+  align-items: center;
+}
+
+.separa-icone{
+  display: block;
+  border: 0 !important;
+  background-color: #cccccc;
+  height: 2px;
+  width: 100%;
+}
+
+.icone-sobre{
+  font-size: 5rem;
+  margin: 2rem auto;
+  text-align: center;
+  display: block;
+  float: none;
+  color: #cccccc;
+}
+
+.descricao{
+  font-size: 22px;
 }
 
 .navbar{
@@ -117,6 +139,15 @@ a:hover{
   background: #181818 !important;
 }
 
+.btn-primary:disabled{
+  background-color: #ccc !important;
+  border: none;
+}
+
+.second{
+  margin-bottom: 150px;
+}
+
 .bg-secondary{
   background: #eda407 !important;
 }
@@ -124,21 +155,25 @@ a:hover{
 .btn-secondary{
   background-color: #eda407;
   border-color: transparent;
+  border: none;
 }
 
 .btn-secondary:hover{
   background-color: #f9bc39;
   border-color: transparent;
+  border: none;
 }
 
 .btn-primary{
   background-color: #004684;
   border-color: transparent;
+  border: none;
 }
 
 .btn-primary:hover{
   background-color: #006dcc;
   border-color: transparent;
+  border: none;
 }
 
 .text-primary{
