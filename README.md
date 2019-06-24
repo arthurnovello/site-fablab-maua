@@ -1,4 +1,4 @@
-# site-fablab-maua
+# Site do FabLab Mauá
 - Cliente: Fablab Maua
 - Grupo: Arthur Novello, Lucas Marques, Luca Ezellner.
 
