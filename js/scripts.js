@@ -73,7 +73,7 @@ $(document).ready(function(){
     breakpoints: { small: 0, large: 992 }
   }) // init
 
-  const updateLax = () => {
+  var updateLax = function() {
     lax.update(window.scrollY+50)
     window.requestAnimationFrame(updateLax)
   };
