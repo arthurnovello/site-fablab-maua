@@ -1,44 +1,5 @@
 $(document).ready(function(){
 
-  const heightWelcome = $('.bg-welcome').height();
-
-  const parallax1 = rallax('.parallax1')
-  parallax1.when(
-    () => window.scrollY > heightWelcome - heightWelcome/4.5,
-    () => parallax1.changeSpeed(0.3)
-  ).when(
-    () => window.scrollY < heightWelcome - heightWelcome/4.5,
-    () => parallax1.changeSpeed(0)
-  ).when(
-    () => window.scrollY > heightWelcome + 100,
-    () => parallax1.changeSpeed(0)
-  );
-
-  const parallax2 = rallax('.parallax2')
-  parallax2.when(
-    () => window.scrollY > heightWelcome - heightWelcome/4.5,
-    () => parallax2.changeSpeed(0.4)
-  ).when(
-    () => window.scrollY < heightWelcome - heightWelcome/4.5,
-    () => parallax2.changeSpeed(0)
-  ).when(
-    () => window.scrollY > heightWelcome + 100,
-    () => parallax2.changeSpeed(0)
-  );
-
-  const parallax3 = rallax('.parallax3')
-  parallax3.when(
-    () => window.scrollY > heightWelcome - heightWelcome/4.5,
-    () => parallax3.changeSpeed(0.5)
-  ).when(
-    () => window.scrollY < heightWelcome - heightWelcome/4.5,
-    () => parallax3.changeSpeed(0)
-  ).when(
-    () => window.scrollY > heightWelcome + 100,
-    () => parallax3.changeSpeed(0)
-  );
-  
-
   var scrollTop = 0;
   $(window).scroll(function(){
     scrollTop = $(window).scrollTop();
@@ -108,12 +69,18 @@ $(document).ready(function(){
       retina_detect: true
   });
 
-  lax.setup() // init
+  lax.setup({
+    breakpoints: { small: 0, large: 992 }
+  }) // init
 
   const updateLax = () => {
     lax.update(window.scrollY+50)
     window.requestAnimationFrame(updateLax)
-  }
+  };
+
+  window.addEventListener("resize", function() {
+    lax.updateElements()
+  });
 
   window.requestAnimationFrame(updateLax)
 
@@ -129,8 +96,38 @@ $(document).ready(function(){
 
     $(".scroll-downs").click(function() {
         $('html,body').animate({
-            scrollTop: $(".second").offset().top-72},
-            'slow');
+            scrollTop: $(".sobre-scroll").offset().top-72},
+            1000);
+    });
+
+    $(".sobre").click(function() {
+      $('html,body').animate({
+          scrollTop: $(".sobre-scroll").offset().top-72},
+          1000);
+    });
+
+    $(".home").click(function() {
+      $('html,body').animate({
+          scrollTop: $('body').offset().top-72},
+          1000);
+    });
+
+    $(".projetos").click(function() {
+      $('html,body').animate({
+          scrollTop: $(".projetos-scroll").offset().top-72},
+          1000);
+    });
+
+    $(".maquinas").click(function() {
+      $('html,body').animate({
+          scrollTop: $(".maquinas-scroll").offset().top-72},
+          1000);
+    });
+
+    $(".agendamento").click(function() {
+      $('html,body').animate({
+          scrollTop: $(".agendamento-scroll").offset().top-72},
+          1000);
     });
     
 });
