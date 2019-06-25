@@ -4,13 +4,244 @@ body, html {
   font-family: 'Raleway', sans-serif;
 }
 
+ul{
+  padding: 0;
+}
+
+ol{
+  padding-left: 20px; 
+}
+
+.horario-li{
+  list-style: none;
+  font-size: 20px;
+}
+
 img {
   width: 100%;
 }
 
-.footer-ul li a{
-  color: #fff !important;
+a:hover{
+  text-decoration: none;
+  color: #eda407 !important;
+  transition: all .2s;
 }
+
+.div-hr-sobre{
+  display: flex;
+  align-items: center;
+}
+
+.separa-icone{
+  display: block;
+  border: 0 !important;
+  background-color: #cccccc;
+  height: 2px;
+  width: 100%;
+}
+
+.icone-sobre{
+  font-size: 5rem;
+  margin: 2rem auto;
+  text-align: center;
+  display: block;
+  float: none;
+  color: #cccccc;
+}
+
+.descricao{
+  font-size: 22px;
+}
+
+#div-welcome{
+  bottom: 0px;
+}
+
+#p-welcome{
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 600;
+}
+
+.navbar{
+  transition: all .5s;
+}
+
+.footer-ul li a{
+  color: #fff;
+}
+
+.scrolled-navbar{
+  background: #00293f;
+  height: 100px;
+  transition: all .5s;
+}
+
+.scrolled-navbar a img{
+  transform: scale(.7);
+  transition: all .5s;
+}
+
+.scrolled-navbar .navbar-nav{
+  background-color: #00293f;
+  transition: all 2s;
+}
+
+.navbar a img{
+  transition: all .5s;
+}
+
+.navbar ul li a{
+  transition: all .5s;
+}
+
+.scrolled-navbar ul li a{
+  font-size: 1rem;
+  transition: all .5s;
+}
+
+/* fotos maquinas */
+
+.ch-grid {
+	padding: 0;
+	list-style: none;
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.ch-grid:after,
+.ch-item:before {
+	content: '';
+    display: table;
+}
+
+.ch-grid:after {
+	clear: both;
+}
+
+.ch-grid li {
+	width: 300px;
+	height: 300px;
+	display: inline-block;
+	margin: 20px;
+}
+
+.ch-item {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	position: relative;
+	cursor: default;
+	box-shadow: 
+		inset 0 0 0 0 rgba(204, 204, 204, 0.6),
+		inset 0 0 0 16px rgba(204, 204, 204,0.6),
+		0 1px 2px rgba(0,0,0,0.1);
+		
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+
+.ch-img-1 { 
+	background-image: url(../img/maquinas/laser.jpg);
+}
+
+.ch-img-2 { 
+	background-image: url(../img/maquinas/roland.jpg);
+}
+
+.ch-img-3 { 
+	background-image: url(../img/maquinas/laser2.jpg);
+}
+
+.ch-img-4 { 
+	background-image: url(../img/maquinas/uv.jpg);
+}
+
+.ch-info {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	opacity: 0;
+	
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-o-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+	
+	-webkit-backface-visibility: hidden; /*for a smooth font */
+
+}
+
+.ch-info h3 {
+	color: #fff;
+	text-transform: uppercase;
+	position: relative;
+	letter-spacing: 2px;
+	font-size: 24px;
+	margin: 0 30px;
+	padding: 65px 0 0 0;
+	height: 110px;
+	text-shadow: 
+		0 0 1px #fff, 
+		0 1px 2px rgba(0,0,0,0.3);
+}
+
+.ch-info p {
+	color: #fff;
+	padding: 10px 5px;
+	margin: 0 30px;
+	font-size: 16px;
+	border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.ch-info p a {
+	display: block;
+	color: #fff;
+	color: rgba(255,255,255,0.7);
+	font-style: normal;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 9px;
+	letter-spacing: 1px;
+	padding-top: 4px;
+	font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.ch-info p a:hover {
+	color: #fff222;
+	color: rgba(255,242,34, 0.8);
+}
+
+.ch-item:hover {
+	box-shadow: 
+		inset 0 0 0 200px rgba(0, 70, 132, 0.6),
+		inset 0 0 0 16px rgba(204, 204, 204,0.8),
+		0 1px 2px rgba(0,0,0,0.1);
+}
+
+.ch-item:hover .ch-info {
+	opacity: 1;
+	
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);	
+}
+
+/* fim fotos maquinas */
 
 .divisoria{
   display: block;
@@ -18,6 +249,17 @@ img {
   background-color: #eda407;
   height: 2px;
   width: 40%;
+  margin-top: 0;
+  margin-bottom: 50px;
+  float: left;
+}
+
+.divisoria-6{
+  display: block;
+  border: 0 !important;
+  background-color: #eda407;
+  height: 2px;
+  width: 80%;
   margin-top: 0;
   float: left;
 }
@@ -40,21 +282,11 @@ img {
   background-image: url("../img/bg-main-img.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
+  height: 100%;
   -o-background-size: cover;
   background-size: cover;
-  height: 100%; 
   background-position: center;
   background-repeat: no-repeat;
-}
-
-#div-welcome{
-  bottom: 0;
-}
-
-#p-welcome{
-  font-size: 3rem;
-  line-height: 4rem;
-  font-weight: 600;
 }
 
 .bg-primary{
@@ -69,6 +301,15 @@ img {
   background: #181818 !important;
 }
 
+.btn-primary:disabled{
+  background-color: #ccc !important;
+  border: none;
+}
+
+.second{
+  margin-bottom: 150px;
+}
+
 .bg-secondary{
   background: #eda407 !important;
 }
@@ -76,21 +317,25 @@ img {
 .btn-secondary{
   background-color: #eda407;
   border-color: transparent;
+  border: none;
 }
 
 .btn-secondary:hover{
   background-color: #f9bc39;
   border-color: transparent;
+  border: none;
 }
 
 .btn-primary{
   background-color: #004684;
   border-color: transparent;
+  border: none;
 }
 
 .btn-primary:hover{
   background-color: #006dcc;
   border-color: transparent;
+  border: none;
 }
 
 .text-primary{
@@ -102,7 +347,7 @@ img {
 }
 
 .btn-welcome{
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .modal-content{
@@ -169,3 +414,38 @@ img {
 }
 
 /*Fim efeito mouse welcome*/
+
+/* Media Queries */
+
+@media (min-width: 576px) {
+  
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  .ch-grid li {
+    width: 400px;
+    height: 400px;
+  }
+  .btn-welcome{
+    font-size: 1.25rem;
+  }
+  #p-welcome{
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+  .scrolled-navbar a img{
+    transform: scale(.7);
+    transition: all .5s;
+  }
+  .scrolled-navbar{
+    height: 80px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+
+}

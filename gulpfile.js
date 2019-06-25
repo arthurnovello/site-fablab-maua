@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     watch = require('gulp-watch');
 
 var destination_path = 'dist/',
-    js_path = 'js/*.js';
+    js_path = 'js/*.min.js';
 
 gulp.task('concat', function(){
     return gulp.src(js_path)
@@ -15,10 +15,10 @@ gulp.task('concat', function(){
 });
 
 gulp.task('minify',function(){
-    return gulp.src(js_path)
-            .pipe(gp_rename('app.min.js'))
+    return gulp.src('js/scripts.js')
+            .pipe(gp_rename('scripts.min.js'))
             .pipe(gp_uglify())
-            .pipe(gulp.dest(destination_path));
+            .pipe(gulp.dest('js/'));
 });
 
 gulp.task('watch', function() {

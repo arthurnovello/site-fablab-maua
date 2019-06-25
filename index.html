@@ -2,265 +2,373 @@
 <html>
 
 <head>
+	<meta charset="UTF-8" content="pt-br">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<title>FabLab IMT</title>
 	<link rel="icon" href="img/favicon.png">
-	<link rel="stylesheet" href="node_modules/get-google-fonts/fonts/fonts.css">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-	<nav class="navbar fixed-top navbar-expand-lg navbar-dark container-fluid px-5">
-		<a class="navbar-brand" href="#">
-			<img src="img/fablab-logo.png">
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Projetos</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Horários</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Agendamento</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Sobre</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark container-fluid px-5">
+        <a class="navbar-brand m-0 m-md-2">
+            <img src="img/fablab-logo.png" class="home logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item home">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item sobre">
+                    <a class="nav-link" href="#">Sobre</a>
+                </li>
+                <li class="nav-item projetos">
+                    <a class="nav-link" href="#">Projetos</a>
+                </li>
+                <li class="nav-item maquinas">
+                    <a class="nav-link" href="#">Máquinas</a>
+                </li>
+                <li class="nav-item agendamento">
+                    <a class="nav-link" href="#">Agendamento</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row bg-welcome m-0" id="particles-js">
+        <div class="col-12 col-md-8 col-lg-4 position-absolute px-5 p-0" id="div-welcome">
+            <h1 class="h2 text-white mb-3" id="p-welcome">O primeiro Fab Lab do ABC está no Instituto Mauá de Tecnologia</h1>
+            <button type="button" class="btn btn-primary mb-5 btn-welcome px-3 py-2 agendamento" data-toggle="modal" data-target="#exampleModalLong">Faça um agendamento</button>
+        </div>
+        <div class="scroll-downs position-absolute mb-5 mr-5 pr-5 d-none d-lg-block">
+            <div class="mousey">
+                <div class="scroller"></div>
+            </div>
+        </div>
+    </div>
 
-	<div class="row bg-welcome m-0" id="particles-js">
-		<div class="col-12 col-lg-4 position-absolute px-5 p-0" id="div-welcome">
-			<h1 class="h2 text-white mb-3" id="p-welcome">O maior FabLab de São Paulo está no Instituto Mauá de
-				Tecnologia</h1>
-			<button type="button" class="btn btn-primary mb-5 btn-welcome px-3 py-2" data-toggle="modal" data-target="#exampleModalLong">Horários
-				de Funcionamento</button>
-		</div>
-		<div class="scroll-downs position-absolute mb-5 mr-5 pr-5">
-			<div class="mousey">
-				<div class="scroller"></div>
-			</div>
-		</div>
-	</div>
+    <div class="container-fluid sobre-scroll my-5">
+        <div class="row px-5">
+            <div class="col-12 p-0">
+                <h2 class="pt-4 text-primary"><i class="fas fa-lightbulb"></i> Fab Lab Mauá</h2>
+                <hr class="divisoria">
+            </div>
+            <div class="col-12 col-md-4 lax" data-lax-translate-x_large="250 0, -100 -40" data-lax-anchor="self">
+                <div class="row">
+                    <div class="col-4 p-0 div-hr-sobre invisible d-none d-md-flex">
+                        <hr class="separa-icone">
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-quote-right icone-sobre"></i>
+                    </div>
+                    <div class="col-4 p-0 div-hr-sobre d-none d-md-flex">
+                        <hr class="separa-icone">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="d-block descricao">O Fab Lab Mauá é um laboratório de experimentação e inovação. Nossa missão é difundir conhecimento sobre fabricação digital e oferecer um ambiente onde o usuário pode implementar de forma prática o conceito do tripé da inovação.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="row">
+                    <div class="col-4 p-0 div-hr-sobre d-none d-md-flex">
+                        <hr class="separa-icone">
+                    </div>
+                    <div class="col-4 text-center">
+                        <i class="fas fa-cogs icone-sobre"></i>
+                    </div>
+                    <div class="col-4 p-0 div-hr-sobre d-none d-md-flex">
+                        <hr class="separa-icone">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="d-block descricao">Para atender aos requisitos do IMT, o laboratório foi projetado com equipamentos de última geração, indo muito além do especificado pela Fab Lab Foundation como o mínimo que se pode esperar de um Fab Lab. Veja os equipamentos que temos disponíveis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 lax" data-lax-translate-x_large="250 0, -100 40" data-lax-anchor="self">
+                <div class="row">
+                    <div class="col-4 p-0 div-hr-sobre d-none d-md-flex">
+                        <hr class="separa-icone">
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-stopwatch icone-sobre"></i>
+                    </div>
+                    <div class="col-4 p-0 div-hr-sobre invisible d-none d-md-flex">
+                        <hr class="separa-icone">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="d-block descricao">Fazemos parte da rede mundial de Fab Labs. Isso significa que estamos abertos não só apenas às demandas internas do Instituto Mauá de Tecnologia, mas também aos pedidos da comunidade que o cerca. Caso queira utilizar nosso espaço, faça um agendamento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid px-5 projetos-scroll mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="pt-4 text-primary"><i class="fas fa-tools"></i> Projetos desenvolvidos</h2>
+                <hr class="divisoria">
+            </div>
+        </div>
+    </div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-	 aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle">Horários de funcionamento</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body pb-0">
-					<p>Segunda a Sexta: das 8h às 22h</p>
-					<p>Sábado: das 8h às 13h</p>
-					<p>Domingo: fechado</p>
-				</div>
-				<div class="modal-footer justify-content-center">
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Mais Detalhes</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="container-fluid px-5">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="pt-4 second text-primary">Projetos Desenvolvidos</h2>
-				<hr class="divisoria">
-			</div>
-		</div>
-	</div>
-	
+    <section class="posts-grid px-5">
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/1.jpg">
+            <h3>Soldas verdes</h3>
+            <p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
+            <a href="">Download projeto 3D</a>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/2.jpg">
+            <h3>Parafusos mágicos</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.</p>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/3.jpg">
+            <h3>O torque pode mudar tudo!</h3>
+            <p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck. Sint pork chop.</p>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/4.jpg">
+            <h3>Treinamentos de corte</h3>
+            <p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/5.jpg">
+            <h3>Eletrônica avançada para iniciantes</h3>
+            <p>Bacon ipsum dolor amet pork brisket nostrud dolore in ut meatball.</p>
+            <a href="">Download projeto 3D</a>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/6.jpg">
+            <h3>Projeto de mão biônica do filme "Eu Robô"</h3>
+            <p>Bacon ipsum dolor amet pork brisket nostrud dolore, sed picanha ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
+            <a href="">Download projeto 3D</a>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/7.jpg">
+            <h3>Benefícios da solda verde</h3>
+            <p>Bacon ipsum dolor amet pork brisket kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
+            <a href="">Download projeto 3D</a>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/8.jpg">
+            <h3>Réplicas do Homem de Ferro</h3>
+            <p>Bacon ipsum dolor amet pork ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/9.jpg">
+            <h3>Aprenda a utilizar a impressora 3D</h3>
+            <p>Bacon ipsum dolor picanha ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/10.jpg">
+            <h3>Cursos de parafusagem avançada</h3>
+            <p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck.</p>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/11.jpg">
+            <h3>A arte do corte a laser</h3>
+            <p>Bacon ipsum dolor amet pork brisket nostrud dolore. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
+            <a href="">Download projeto 3D</a>
+        </article>
+        <article class="post lax" data-lax-scale="50 1, -300 0" data-lax-opacity="50 1, -200 0" data-lax-anchor="self">
+            <img src="img/posts/12.jpg">
+            <h3>Pequenos parafusos, grandes projetos</h3>
+            <p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck.</p>
+        </article>
+    </section>
+    <div class="container-fluid px-5 maquinas-scroll">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="pt-4 text-primary"><i class="fas fa-wrench"></i> Máquinas disponíveis</h2>
+                <hr class="divisoria">
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <ul class="ch-grid my-5">
+                <li>
+                    <div class="ch-item ch-img-1">
+                        <div class="ch-info">
+                            <h3>LASER DSL 16.25</h3>
+                            <p>Máquina Laser CO2 multifuncional para corte e gravação em diferentes materiais não metálicos como: madeira, MDF, acrílico, EVA e outros.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="ch-item ch-img-2">
+                        <div class="ch-info">
+                            <h3>MODELA MDX-40A</h3>
+                            <p>Lida com uma ampla variedade de materiais, incluindo ABS, nylon, acrílico, madeira química. Ajuda você a transformar conceitos em objetos funcionais, desde esculturas lisas de arte até peças de alta precisão e protótipos.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="ch-item ch-img-3">
+                        <div class="ch-info">
+                            <h3>AE3D Plus</h3>
+                            <p>Imprime até 52cm de altura, ambiente de impressão fechado, estrutura mais robusta e estável proporcionando o mais alto nível de impressão.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="ch-item ch-img-4">
+                        <div class="ch-info">
+                            <h3>VersaUV LEF-12i</h3>
+                            <p>Oferece inúmeras customizações de produtos e possibilidades de substrato, incluindo imprimir diretamente em objetos tridimensionais de até 10cm de espessura.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid px-5 mb-3">
+        <section class="row justify-content-center">
+            <div class="col-12 agendamento-scroll">
+                <h2 class="pt-4 text-primary"><i class="fas fa-comments"></i> Agende um horário</h2>
+                <hr class="divisoria">
+            </div>
+            <div class="row container-fluid align-items-top mb-5 px-0 justify-content-center">
+                <div class="col-12 col-lg-6">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-primary text-white border-0" id="basic-addon1"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Nome Completo" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
 
-	<section class="posts-grid px-5">
-		<article class="post">
-			<img src="img/posts/1.jpg">
-			<h3>Soldas verdes</h3>
-			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
-				<a href="">Download projeto 3D</a>
-		</article>
-		<article class="post">
-			<img src="img/posts/2.jpg">
-			<h3>Parafusos mágicos</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.</p>
-		</article>
-		<article class="post">
-			<img src="img/posts/3.jpg">
-			<h3>O torque pode mudar tudo!</h3>
-			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck. Sint pork chop.</p>
-		</article>
-		<article class="post">
-			<img src="img/posts/4.jpg">
-			<h3>Treinamentos de corte</h3>
-			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
-		</article>
-		<article class="post">
-			<img src="img/posts/5.jpg">
-			<h3>Eletrônica avançada para iniciantes</h3>
-			<p>Bacon ipsum dolor amet pork brisket nostrud dolore in ut meatball.</p>
-			<a href="">Download projeto 3D</a>
-		</article>
-		<article class="post">
-			<img src="img/posts/6.jpg">
-			<h3>Projeto de mão biônica do filme "Eu Robô"</h3>
-			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, sed picanha ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
-				<a href="">Download projeto 3D</a>
-		</article>
-		<article class="post">
-			<img src="img/posts/7.jpg">
-			<h3>Benefícios da solda verde</h3>
-			<p>Bacon ipsum dolor amet pork brisket kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
-			<a href="">Download projeto 3D</a>
-		</article>
-		<article class="post">
-			<img src="img/posts/8.jpg">
-			<h3>Réplicas do Homem de Ferro</h3>
-			<p>Bacon ipsum dolor amet pork ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
-		</article>
-		<article class="post">
-			<img src="img/posts/9.jpg">
-			<h3>Aprenda a utilizar a impressora 3D</h3>
-			<p>Bacon ipsum dolor picanha ullamco kevin chuck. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
-		</article>
-		<article class="post">
-			<img src="img/posts/10.jpg">
-			<h3>Cursos de parafusagem avançada</h3>
-			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck.</p>
-		</article>
-		<article class="post">
-			<img src="img/posts/11.jpg">
-			<h3>A arte do corte a laser</h3>
-			<p>Bacon ipsum dolor amet pork brisket nostrud dolore. Sint pork chop tail sausage, tongue leberkas in ut meatball.</p>
-			<a href="">Download projeto 3D</a>
-		</article>
-		<article class="post">
-			<img src="img/posts/12.jpg">
-			<h3>Pequenos parafusos, grandes projetos</h3>
-			<p>Bacon ipsum dolor amet pork brisket nostrud dolore, adipisicing spare ribs magna pancetta ea prosciutto sed picanha ullamco kevin chuck.</p>
-		</article>
-	</section>
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-primary text-white border-0" id="basic-addon2"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-primary text-white border-0" id="basic-addon3"><i class="fas fa-keyboard"></i></span>
+                        </div>
+                        <textarea class="form-control" placeholder="Sua mensagem" aria-describedby="basic-addon3" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-2 px-5 py-2 mx-auto mb-5" data-toggle="modal" data-target="#modalExemplo">Enviar</button>
 
-	<div class="container-fluid px-5 mb-3">
-			<section class="row">
-				<div class="col-12">
-					<h2 class="pt-4 second text-primary">Reserve um horário</h2>
-					<hr class="divisoria">
-				</div>
-				<div class="col-12">
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="basic-addon1">@</span>
-						</div>
-						<input type="text" class="form-control" placeholder="Nome Completo" aria-label="Username" aria-describedby="basic-addon1">
-					</div>
-						
-					<div class="input-group mb-3">
-						<div class="input-group-append">
-							<span class="input-group-text" id="basic-addon2">fablab@exemplo.com</span>
-						</div>
-						<input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
-					</div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Termos de uso</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body text-left">
+                                    <ol>
+                                        <li>É obrigatório a utilização de EPIs dentro do Fab Lab.</li>
+                                        <li>É obrigarótio a utilização de calças nos recintos do Fab Lab.</li>
+                                        <li>É proibido comer ou beber.</li>
+                                        <li>Cabelos longos devem estar presos durante a operação de máquinas.</li>
+                                        <li>Fique atento com mangas compridas durante a operação de máquinas.</li>
+                                    </ol>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="form-check mr-3">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" onchange="document.getElementById('enviar-email').disabled = !this.checked;">
+                                        <label class="form-check-label" for="exampleCheck1">Li e concordo os termos</label>
+                                    </div>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="enviar-email" disabled>Enviar email</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 mb-5">
+                    <iframe width="100%"
+                            height="250px"
+                            frameborder="0" style="border:0; display:block; margin: 0 auto;"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAH3N3CrD207eeAEONwVzhY-jIP9HnqoZU
+							&q=Instituto+Maua+de+Tecnologia,São+Caetano+do+Sul" allowfullscreen></iframe>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <h3 class="text-primary">Horário de funcionamento:</h3>
+                    <ul>
+                        <li class="horario-li">Segunda a Sexta: 8h às 22h</li>
+                        <li class="horario-li">Sábado: 8h às 13h</li>
+                    </ul>
+                </div>
+            </div>
 
-					<div class="input-group mb-3">
-						<div class="input-group-append">
-							<span class="input-group-text" id="basic-addon2">DD/MM/YYYY HH:MM</span>
-						</div>
-						<input type="text" class="form-control" placeholder="Data e horário" aria-label="Recipient's username" aria-describedby="basic-addon2">
-					</div>
-					
-					<label for="basic-url">Informações sobre o projeto</label>
-					<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon3">Projeto</span>
-					</div>
-					<input type="text" class="form-control" id="basic-url" placeholder="Título do projeto" aria-describedby="basic-addon3">
-					</div>
-					
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<label class="input-group-text" for="inputGroupSelect01">Utilização</label>
-						</div>
-						<select class="custom-select" id="inputGroupSelect01">
-							<option selected>Escolha o que o grupo irá utilizar</option>
-							<option value="1">Impressora 3D</option>
-							<option value="2">Sala de pintura</option>
-							<option value="3">Sala de corte</option>
-						</select>
-					</div>
-				</div>
-				<button type="button" class="btn btn-primary mb-5 px-5 py-2 mx-auto">Enviar</button>
-			</section>
-		</div>
-	
-	<footer class="bg-black pt-4 text-white px-5">
-		<div class="container-fluid text-center text-md-left">
-		<div class="row">
-			<div class="col-md-6 mt-md-0 mt-3 p-0">
-				<h5 class="text-uppercase text-secondary mb-3">Fab Lab - Instituto Mauá de Tecnologia</h5>
-				<p class="mb-0">Campus  São Caetano do Sul</p>
-				<p>Praça Mauá 1 São Caetano do Sul - SP</p>
-			</div>
-		<div class="col-md-3 mb-md-0 mb-3">
-			<h5 class="text-uppercase text-secondary">Navegação</h5>
-			<ul class="list-unstyled footer-ul">
-				<li>
-					<a href="#!">Home</a>
-				</li>
-				<li>
-					<a href="#!">Projetos</a>
-				</li>
-				<li>
-					<a href="#!">Horários</a>
-				</li>
-				<li>
-					<a href="#!">Agendamento</a>
-				</li>
-				<li>
-					<a href="#!">Sobre</a>
-				</li>
-			</ul>
+        </section>
+    </div>
 
-			</div>
-			<div class="col-md-3 mb-md-0 mb-3 p-0">
-				<h5 class="text-uppercase text-secondary">Mídias</h5>
-				<ul class="list-unstyled footer-ul">
-					<li>
-						<a href="#!">Instagram</a>
-					</li>
-					<li>
-						<a href="#!">Facebook</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		</div>
-	</footer>
+    <footer class="bg-black pt-4 text-white px-5">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+                <div class="col-12 col-md-6 mt-md-0 mt-3 p-0">
+                    <h5 class="text-uppercase text-secondary mb-3">Fab Lab - Instituto Mauá de Tecnologia</h5>
+                    <p class="mb-0">Campus  São Caetano do Sul</p>
+                    <p>Praça Mauá 1 São Caetano do Sul - SP</p>
+                    <a href="https://www.instagram.com/fablabmaua/" class="mb-0 my-2 text-white d-flex align-items-center justify-content-center justify-content-md-start mx-auto"><i class="fab fa-instagram h3 m-0"></i><span class="text-center ml-2">fablabmaua</span></a>
+                </div>
+                <div class="col-12 col-md-3 mb-md-0 mb-3 d-none d-lg-block">
+                    <h5 class="text-uppercase text-secondary">Navegação</h5>
+                    <ul class="list-unstyled footer-ul">
+                        <li>
+                            <a href="#!" class="home">Home</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="sobre">Sobre</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="projetos">Projetos</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="maquinas">Máquinas</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="agendamento">Agendamento</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3 mb-md-0 mb-3 p-0">
+                    <h5 class="text-uppercase text-secondary">Acompanhe o Instituto Mauá de Tecnologia</h5>
+                    <ul class="list-unstyled footer-ul">
+                        <li>
+                            <a href="#!">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="#!">Facebook</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-	
-	<div class="text-center py-2 bg-dark text-white">© 2019
-		<a href="https://maua.br" class="text-white"> Instituto Mauá de Tecnologia</a>
-	</div>
+    <div class="row container-fluid m-0 py-2 bg-dark text-white">
+        <div class="col-12 col-md-6">
+            <a href="https://maua.br" class="text-white mr-auto pl-3">© 2019 Instituto Mauá de Tecnologia</a>
+        </div>
+        <div class="col-12 col-md-6 ml-auto">
+            <a href="https://maua.br" class="text-white mr-2"><i class="fab fa-github"></i> Arthur Novello</a>
+            <a href="https://maua.br" class="text-white mr-2"><i class="fab fa-github"></i> Luca Miraglia</a>
+            <a href="https://maua.br" class="text-white"><i class="fab fa-github"></i> Lucas Marques</a>
+        </div>
+    </div>
 
-	<!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
-	<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-	<script src="js/scripts.js"></script>
-	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="node_modules/popper.js/dist/popper.min.js"></script>
-	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="dist/jquery.min.js"></script>
+    <script src="dist/app.js"></script>
 </body>
 
 </html>
