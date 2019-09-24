@@ -35,5 +35,6 @@ gulp.task('default',gulp.parallel(['concat','minify','watch']));
  */
 gulp.task('deploy', function () {
   return gulp.src("./dist/**/*")
-    .pipe(deploy())
+    .pipe(deploy(remoteUrl: 'https://github.com/arthurnovello/site-fablab-maua',
+      branch: 'master'))
 });
