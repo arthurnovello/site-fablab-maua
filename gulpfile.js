@@ -4,6 +4,8 @@ var gulp = require('gulp'),
     gp_uglify = require('gulp-uglify'),
     watch = require('gulp-watch');
 
+var deploy = require('gulp-gh-pages');
+
 var destination_path = 'dist/',
     js_path = 'js/*.min.js';
 
@@ -27,3 +29,11 @@ gulp.task('watch', function() {
 
 //gulp.task('default',gulp.parallel(['concat','minify']));
 gulp.task('default',gulp.parallel(['concat','minify','watch']));
+
+/**
+ * Push build to gh-pages
+ */
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
+});
