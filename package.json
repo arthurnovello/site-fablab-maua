@@ -28,7 +28,7 @@
     "get-google-fonts": "^1.1.2",
     "jquery": "^3.4.1",
     "lax.js": "^1.2.3",
-    "popper.js": "^1.15.0"
+    "popper.js": "^1.16.0"
   },
   "devDependencies": {
     "cryptiles": ">=4.1.2",
