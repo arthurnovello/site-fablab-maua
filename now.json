@@ -1,7 +1,0 @@
-{
-  "name": "Fablab",
-  "version": 2,
-  "builds": [
-   { "src": "*.html", "use": "@now/static" }
- ]
-}
