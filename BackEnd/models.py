@@ -16,7 +16,6 @@ class PedidoModel(db.Model):
     descricao = db.Column(db.String, nullable=False)
     material_proprio = db.Column(db.Boolean, nullable=False)
 
-    @classmethod
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
@@ -29,14 +28,13 @@ class PedidoModel(db.Model):
     def delete_by_id(cls, id):
         cls.query.delete(cls)
         cls.commit()
-    
 
 class CursoModel(db.Model):
     __tablename__ = 'Cursos'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     curso = db.Column(db.String(255), nullable=False)
 
-    @classmethod
+    
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
@@ -53,15 +51,15 @@ class CursoModel(db.Model):
 
     @classmethod
     def delete_by_id(cls, id):
-        cls.query.delete(cls)
-        cls.commit()
+        cls.query.filter_by(id=id).delete()
+        db.session.commit()
 
 class SolicitanteModel(db.Model):
     __tablename__ = 'Solicitantes'
     id = db.Column(db.Integer, primary_key=True)
     solicitante = db.Column(db.String(255), nullable=False)
 
-    @classmethod
+    
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
@@ -87,7 +85,7 @@ class SalaModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sala = db.Column(db.String(255), nullable=False)
 
-    @classmethod
+    
     def save_to_db(self):
        db.session.add(self)
        db.session.commit()
@@ -112,7 +110,7 @@ class SolicitacaoModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     solicitacao = db.Column(db.String(255), nullable=False)
 
-    @classmethod
+    
     def save_to_db(self):
        db.session.add(self)
        db.session.commit()
@@ -140,7 +138,7 @@ class PessoaModel(db.Model):
     email = db.Column(db.String(255), nullable=False)
     ra = db.Column(db.String(255), nullable=True)
 
-    @classmethod
+    
     def save_to_db(self):
        db.session.add(self)
        db.session.commit()
@@ -172,7 +170,7 @@ class StatusModel(db.Model):
     tempo = db.Column(db.String(255), nullable=True)
     concluido = db.Column(db.Boolean, default=False)
 
-    @classmethod
+    
     def save_to_db(self):
        db.session.add(self)
        db.session.commit()

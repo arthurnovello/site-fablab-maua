@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse
 from flask import request
-from models import PedidoModel,CursoModel,PessoaModel,SalaModel,StatusModel,SolicitanteModel, SolicitacaoModel
+from models import *
 # from flask_jwt_extended import jwt_required
 parser = reqparse.RequestParser()
 
@@ -11,9 +11,7 @@ class Pedido(Resource):
            pedido = request.get_json(force=True) 
            novo_pedido = PedidoModel(**pedido)
            novo_pedido.save_to_db()
-           return {
-               'message': 'Pedido criado com sucesso.'
-           }
+           return {'message': 'Pedido criado com sucesso.'}, 201
        except:
            return {'message': 'Erro ao criar pedido.'}, 500
     
@@ -33,38 +31,39 @@ class Curso(Resource):
        novo_curso = CursoModel(curso=nomeCurso)
        try:
            novo_curso.save_to_db()
-           return {
-               'message': 'Curso criado com sucesso.'
-           }
-       except Exception as e:
-           return {'message': 'Erro ao criar curso. ' + str(e)}, 500
+           return {'message': 'Curso criado com sucesso.'}, 201
+       except:
+           return {'message': 'Erro ao criar curso.'}, 500
     
     # @jwt_required
     def get(self):
        parametro = request.get_json(force=True)
        id = parametro.get('id')
        return CursoModel.return_by_id(id)
-       
-     
+
     # @jwt_required
-    def delete(self, id):
+    def delete(self):
        parametro = request.get_json(force=True)
        id = parametro.get('id')
-       return CursoModel.delete_by_id(id)
+       try:
+           CursoModel.delete_by_id(id)
+           return {'message': 'Curso deletado com sucesso.'}, 200
+       except:
+           return {'message': 'Erro ao deletar curso.'}, 500
 
 class Pessoa(Resource):
     # @jwt_required
     def post(self):
        parametro = request.get_json(force=True)
-       nomeCurso = parametro.get('curso')
-       novo_curso = CursoModel(curso=nomeCurso)
+       nome = parametro.get('nome')
+       email = parametro.get('email')
+       ra = parametro.get('ra')
+       nova_pessoa = PessoaModel(nome=nome,email=email,ra=ra)
        try:
-           novo_curso.save_to_db()
-           return {
-               'message': 'Curso criado com sucesso.'
-           }
+           nova_pessoa.save_to_db()
+           return {'message': 'Pessoa adicionada com sucesso.'}, 201
        except:
-           return {'message': 'Erro ao criar curso.'}, 500
+           return {'message': 'Erro ao adicionar pessoa.'}, 500
     
     # @jwt_required
     def get(self):
@@ -83,15 +82,13 @@ class Sala(Resource):
     # @jwt_required
     def post(self):
        parametro = request.get_json(force=True)
-       nomeCurso = parametro.get('curso')
-       novo_curso = CursoModel(curso=nomeCurso)
+       nomeSala = parametro.get('sala')
+       nova_sala = SalaModel(sala=nomeSala)
        try:
-           novo_curso.save_to_db()
-           return {
-               'message': 'Curso criado com sucesso.'
-           }
+           nova_sala.save_to_db()
+           return {'message': 'Sala adicionada com sucesso.'}, 201
        except:
-           return {'message': 'Erro ao criar curso.'}, 500
+           return {'message': 'Erro ao adicionar sala.'}, 500
     
     # @jwt_required
     def get(self):
@@ -110,13 +107,11 @@ class Status(Resource):
     # @jwt_required
     def post(self):
        parametro = request.get_json(force=True)
-       nomeCurso = parametro.get('curso')
-       novo_curso = CursoModel(curso=nomeCurso)
+       nomeStatus = parametro.get('curso')
+       novo_curso = CursoModel(curso=nomeStatus)
        try:
            novo_curso.save_to_db()
-           return {
-               'message': 'Curso criado com sucesso.'
-           }
+           return {'message': 'Curso criado com sucesso.'}, 201
        except:
            return {'message': 'Erro ao criar curso.'}, 500
     
