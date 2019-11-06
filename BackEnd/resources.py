@@ -7,16 +7,44 @@ parser = reqparse.RequestParser()
 class Pedido(Resource):
     # @jwt_required
     def post(self):
+       parametro = request.get_json(force=True) 
+       id_pessoa = parametro.get('id_pessoa')
+       id_solicitante = parametro.get('id_solicitante')
+       id_sala = parametro.get('id_sala')
+       id_curso = parametro.get('id_curso')
+       id_solicitacao = parametro.get('id_solicitacao')
+       data = parametro.get('data')
+       duracao = parametro.get('duracao')
+       qtd_pessoas = parametro.get('qtd_pessoas')
+       aprovado = parametro.get('aprovado')
+       prazo = parametro.get('prazo')
+       descricao = parametro.get('descricao')
+       material_proprio = parametro.get('material_proprio')
+
+       novo_pedido = PedidoModel(
+           id_pessoa=id_pessoa,
+           id_solicitante=id_solicitante,
+           id_sala=id_sala,
+           id_curso=id_curso,
+           id_solicitacao=id_solicitacao,
+           data=data,
+           duracao=duracao,
+           qtd_pessoas=qtd_pessoas,
+           aprovado=aprovado,
+           prazo=prazo,
+           descricao=descricao,
+           material_proprio=material_proprio
+       )
        try:
-           pedido = request.get_json(force=True) 
-           novo_pedido = PedidoModel(**pedido)
            novo_pedido.save_to_db()
            return {'message': 'Pedido criado com sucesso.'}, 201
-       except:
-           return {'message': 'Erro ao criar pedido.'}, 500
+       except Exception as e:
+           return {'message': 'Erro ao criar pedido.' + str(e)}, 500
     
     # @jwt_required
-    def get(self,email):
+    def get(self):
+       parametro = request.get_json(force=True)
+       email = parametro.get('email')
        return PedidoModel.return_by_email(email)
      
     # @jwt_required
@@ -118,8 +146,8 @@ class Status(Resource):
     # @jwt_required
     def get(self):
        parametro = request.get_json(force=True)
-       id = parametro.get('id')
-       return StatusModel.return_by_id(id)
+       id_pedido = parametro.get('id_pedido')
+       return StatusModel.return_by_id_pedido(id_pedido)
        
      
     # @jwt_required
