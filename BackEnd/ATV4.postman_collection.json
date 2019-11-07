@@ -121,7 +121,81 @@
 		},
 		{
 			"name": "Pedido",
-			"item": [],
+			"item": [
+				{
+					"name": "localhost:5000/Pedido",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"lucas_lutinho@hotmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/Pedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:5000/Pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n                \"id_pessoa\": 1,\n                \"id_solicitante\": 1,\n                \"id_curso\": 5,\n                \"id_solicitacao\":1,\n                \"id_sala\":1,\n                \"data\":\"01/02/2018\",\n                \"duracao\":2,\n                \"qtd_pessoas\":1,\n                \"aprovado\":False,\n                \"prazo\":2,\n                \"descricao\":\"oi\",\n                \"material_proprio\":True\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/Pedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Pedido"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
@@ -353,10 +427,10 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Solicitacoes",
+			"name": "Solicitacao",
 			"item": [
 				{
-					"name": "localhost:5000/Solicitacoes",
+					"name": "localhost:5000/Solicitacao",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -380,58 +454,23 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/Solicitacoes",
+							"raw": "http://localhost:5000/Solicitacao",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "5000",
 							"path": [
-								"Solicitacoes"
+								"Solicitacao"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "localhost:5000/Solicitacoes",
+					"name": "localhost:5000/Solicitacao",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/javascript",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"solicitacao\":\"nomeDaSolicitacao\"\n}",
-							"options": {
-								"raw": {
-									"language": "javascript"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/Solicitacoes",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"Solicitacoes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "localhost:5000/Solicitacoes",
-					"request": {
-						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -442,7 +481,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}",
+							"raw": "{\n\t\"solicitacao\":\"nomeDaSolicitacao\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -450,14 +489,49 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/Solicitacoes",
+							"raw": "http://localhost:5000/Solicitacao",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "5000",
 							"path": [
-								"Solicitacoes"
+								"Solicitacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:5000/Solicitacao",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/Solicitacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Solicitacao"
 							]
 						}
 					},
@@ -467,7 +541,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Solicitantes",
+			"name": "Solicitante",
 			"item": [
 				{
 					"name": "localhost:5000/Solicitante",
@@ -582,7 +656,92 @@
 		},
 		{
 			"name": "Status",
-			"item": [],
+			"item": [
+				{
+					"name": "localhost:5000/Status",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id_pedido\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/Status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:5000/Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id_pedido\":1,\n\t\"termino\":2,\n\t\"massa\":\"4\",\n\t\"tempo\":\"3\",\n\t\"concluido\":0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/Status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:5000/Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		}
 	],

@@ -46,8 +46,8 @@ class PedidoModel(db.Model):
                 
     @classmethod
     def delete_by_id(cls, id):
-        cls.query.delete(cls)
-        cls.commit()
+        cls.query.filter_by(id=id).delete()
+        db.session.commit()
 
 class CursoModel(db.Model):
     __tablename__ = 'Cursos'
@@ -68,6 +68,7 @@ class CursoModel(db.Model):
             }
         return {'Curso': list(map(lambda x: to_json(x),
                 cls.query.filter_by(id=id)))}        
+
 
     @classmethod
     def delete_by_id(cls, id):
@@ -95,10 +96,11 @@ class SolicitanteModel(db.Model):
         return {'Solicitante': list(map(lambda x: to_json(x),
                 cls.query.filter_by(id=id)))}
         
+
     @classmethod
     def delete_by_id(cls, id):
-        cls.query.delete(cls)
-        cls.commit()
+        cls.query.filter_by(id=id).delete()
+        db.session.commit()
 
 class SalaModel(db.Model):
     __tablename__ = 'Salas'
@@ -120,10 +122,11 @@ class SalaModel(db.Model):
         return {'Sala': list(map(lambda x: to_json(x),
                 cls.query.filter_by(id=id)))} 
        
+
     @classmethod
     def delete_by_id(cls, id):
-        cls.query.delete(cls)
-        cls.commit()
+        cls.query.filter_by(id=id).delete()
+        db.session.commit()
 
 class SolicitacaoModel(db.Model):
     __tablename__ = 'Solicitacoes'
@@ -146,10 +149,11 @@ class SolicitacaoModel(db.Model):
         return {'Solicitacao': list(map(lambda x: to_json(x),
                 cls.query.filter_by(id=id)))}
        
+
     @classmethod
     def delete_by_id(cls, id):
-        cls.query.delete(cls)
-        cls.commit()
+        cls.query.filter_by(id=id).delete()
+        db.session.commit()
 
 class PessoaModel(db.Model):
     __tablename__ = 'Pessoas'
@@ -176,10 +180,11 @@ class PessoaModel(db.Model):
         return {'Pessoa': list(map(lambda x: to_json(x),
                 cls.query.filter_by(id=id)))}        
        
+
     @classmethod
     def delete_by_id(cls, id):
-        cls.query.delete(cls)
-        cls.commit()
+        cls.query.filter_by(id=id).delete()
+        db.session.commit()
 
 class StatusModel(db.Model):
     __tablename__ = 'Status'
@@ -212,7 +217,8 @@ class StatusModel(db.Model):
                 .filter(cls.id == id_pedido)
                 ))}
        
+
     @classmethod
     def delete_by_id(cls, id):
-        cls.query.delete(cls)
-        cls.commit()
+        cls.query.filter_by(id=id).delete()
+        db.session.commit()
