@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" content="pt-br">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<title>FabLab IMT</title>
+	<link rel="icon" href="img/favicon.png">
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark container-fluid px-5">
+        <a class="navbar-brand m-0 m-md-2">
+            <img src="img/fablab-logo.png" class="home logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item home">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item sobre">
+                    <a class="nav-link" href="#">Sobre</a>
+                </li>
+                <li class="nav-item projetos">
+                    <a class="nav-link" href="#">Projetos</a>
+                </li>
+                <li class="nav-item maquinas">
+                    <a class="nav-link" href="#">Máquinas</a>
+                </li>
+                <li class="nav-item agendamento">
+                    <a class="nav-link" href="#">Agendamento</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container-fluid mb-5">
+        <div class="row">
+            <div class="col-12">
+                <form id="agendamento">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="inputNome">Nome</label>
+                                    <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <legend class="col-form-label col-sm-12 pt-0">Relação IMT</legend>
+                                        <div class="col-sm-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="aluno" value="aluno" checked>
+                                                <label class="form-check-label" for="aluno">
+                                                    Aluno
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="exAluno" value="exAluno">
+                                                <label class="form-check-label" for="exAluno">
+                                                    Ex-aluno
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="funcionario" value="funcionario">
+                                                <label class="form-check-label" for="funcionario">
+                                                    Funcionario
+                                                </label>
+                                            </div>
+                                            <div class="form-check d-flex">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="outro" value="outro">
+                                                <label class="form-check-label mr-2" for="outro">
+                                                    Outro
+                                                </label>
+                                                <input type="text" class="form-control outro hide" id="outroInput" placeholder="Especifique">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-3">
+                            <fieldset class="form-group">
+                                <div class="row solicitacao">
+                                    <legend class="col-form-label col-sm-12 pt-0">Solicitação de:</legend>
+                                    <div class="col-sm-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="solicitacaoRadios" id="agendamento-radio" value="agendamento-radio" checked>
+                                            <label class="form-check-label" for="agendamento-radio">
+                                                Agendamento
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="solicitacaoRadios" id="fabricacao-radio" value="fabricacao-radio">
+                                            <label class="form-check-label" for="fabricacao-radio">
+                                                Fabricação
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="row aluno-div form-group">
+                        <div class="col-md-6">
+                            <label for="inputRa">R.A.</label>
+                            <input type="email" class="form-control" id="inputRa" placeholder="R.A">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputCurso">Curso</label>
+                            <input type="text" class="form-control" id="inputCurso" placeholder="Curso">
+                        </div>
+                    </div>
+
+                    <div class="row form-group" id="agendamento-div">
+                        <div class="col-md-3">
+                            <label for="data-agendamento">Data do Agendamento</label>
+                            <input type="date" class="form-control" id="data-agendamento" placeholder="Curso">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="sala">Sala</label>
+                            <select class="form-control" id="sala">
+                                <option>E01</option>
+                                <option>E02</option>
+                                <option>D04</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="duracao">Duração</label>
+                            <select class="form-control" id="duracao">
+                                <option>1 hora</option>
+                                <option>2 horas</option>
+                                <option>3 horas</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="pessoas">Pessoas</label>
+                            <select class="form-control" id="pessoas">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group hide" id="fabricacao-div">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="processo">Processo</label>
+                                <select class="form-control" id="processo">
+                                    <option>Corte</option>
+                                    <option>Laser</option>
+                                    <option>Pintura</option>
+                                </select>
+                            </div>
+                            <div class="col-md-9">
+                                <label for="inputDescricao">Descrição</label>
+                                <input type="email" class="form-control" id="inputDescricao" placeholder="Breve explicação sobre o projeto">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-3">
+                                <label for="inputMaterial">Material</label>
+                                <input type="email" class="form-control" id="inputMaterial" placeholder="Material utilizado para fabricação">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="materialProprio">Material Próprio</label>
+                                <select class="form-control" id="materialProprio">
+                                    <option>Sim</option>
+                                    <option>Não</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="prazo">Prazo</label>
+                                <input type="date" class="form-control" id="prazo" placeholder="Curso">
+                            </div>
+                            <div class="col-md-3">
+                                <label>Arquivo</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    
+                    <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <footer class="bg-black pt-4 text-white px-5">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+                <div class="col-12 col-md-6 mt-md-0 mt-3 p-0">
+                    <h5 class="text-uppercase text-secondary mb-3">Fab Lab - Instituto Mauá de Tecnologia</h5>
+                    <p class="mb-0">Campus  São Caetano do Sul</p>
+                    <p>Praça Mauá 1 São Caetano do Sul - SP</p>
+                    <a href="https://www.instagram.com/fablabmaua/" class="mb-0 my-2 text-white d-flex align-items-center justify-content-center justify-content-md-start mx-auto"><i class="fab fa-instagram h3 m-0"></i><span class="text-center ml-2">fablabmaua</span></a>
+                </div>
+                <div class="col-12 col-md-3 mb-md-0 mb-3 d-none d-lg-block">
+                    <h5 class="text-uppercase text-secondary">Navegação</h5>
+                    <ul class="list-unstyled footer-ul">
+                        <li>
+                            <a href="#!" class="home">Home</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="sobre">Sobre</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="projetos">Projetos</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="maquinas">Máquinas</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="agendamento">Agendamento</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3 mb-md-0 mb-3 p-0">
+                    <h5 class="text-uppercase text-secondary">Acompanhe o Instituto Mauá de Tecnologia</h5>
+                    <ul class="list-unstyled footer-ul">
+                        <li>
+                            <a href="#!">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="#!">Facebook</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <div class="row container-fluid m-0 py-2 bg-dark text-white">
+        <div class="col-12 col-md-6">
+            <a href="https://maua.br" class="text-white mr-auto pl-3">© 2019 Instituto Mauá de Tecnologia</a>
+        </div>
+        <div class="col-12 col-md-6 ml-auto">
+            <a href="https://maua.br" class="text-white mr-2"><i class="fab fa-github"></i> Arthur Novello</a>
+            <a href="https://maua.br" class="text-white mr-2"><i class="fab fa-github"></i> Luca Miraglia</a>
+            <a href="https://maua.br" class="text-white"><i class="fab fa-github"></i> Lucas Marques</a>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="dist/jquery.min.js"></script>
+    <script type="text/javascript" src="js/forms.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="dist/app.js"></script>
+</body>
+
+</html>
