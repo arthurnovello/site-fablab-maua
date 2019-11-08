@@ -7,7 +7,7 @@ parser = reqparse.RequestParser()
 class Pedido(Resource):
     # @jwt_required
     def post(self):
-       parametro = request.get_json(force=True) 
+       parametro = request.get_json(force=True)
        id_pessoa = parametro.get('id_pessoa')
        id_solicitante = parametro.get('id_solicitante')
        id_sala = parametro.get('id_sala')
@@ -40,13 +40,13 @@ class Pedido(Resource):
            return {'message': 'Pedido criado com sucesso.'}, 201
        except Exception as e:
            return {'message': 'Erro ao criar pedido.' + str(e)}, 500
-    
+
     # @jwt_required
     def get(self):
        parametro = request.get_json(force=True)
        email = parametro.get('email')
        return PedidoModel.return_by_email(email)
-     
+
     # @jwt_required
     def delete(self):
        parametro = request.get_json(force=True)
@@ -68,7 +68,7 @@ class Curso(Resource):
            return {'message': 'Curso criado com sucesso.'}, 201
        except:
            return {'message': 'Erro ao criar curso.'}, 500
-    
+
     # @jwt_required
     def get(self):
        parametro = request.get_json(force=True)
@@ -98,14 +98,14 @@ class Pessoa(Resource):
            return {'message': 'Pessoa adicionada com sucesso.'}, 201
        except:
            return {'message': 'Erro ao adicionar pessoa.'}, 500
-    
+
     # @jwt_required
     def get(self):
        parametro = request.get_json(force=True)
        id = parametro.get('id')
        return PessoaModel.return_by_id(id)
-       
-     
+
+
     # @jwt_required
     def delete(self):
        parametro = request.get_json(force=True)
@@ -115,7 +115,7 @@ class Pessoa(Resource):
            return {'message': 'Pessoa deletada com sucesso.'}, 200
        except:
            return {'message': 'Erro ao deletar pessoa.'}, 500
-       
+
 class Sala(Resource):
     # @jwt_required
     def post(self):
@@ -127,14 +127,14 @@ class Sala(Resource):
            return {'message': 'Sala adicionada com sucesso.'}, 201
        except:
            return {'message': 'Erro ao adicionar sala.'}, 500
-    
+
     # @jwt_required
     def get(self):
        parametro = request.get_json(force=True)
        id = parametro.get('id')
        return SalaModel.return_by_id(id)
-       
-     
+
+
     # @jwt_required
     def delete(self):
        parametro = request.get_json(force=True)
@@ -160,14 +160,14 @@ class Status(Resource):
            return {'message': 'Status criado com sucesso.'}, 201
        except:
            return {'message': 'Erro ao criar status.'}, 500
-    
+
     # @jwt_required
     def get(self):
        parametro = request.get_json(force=True)
        id_pedido = parametro.get('id_pedido')
        return StatusModel.return_by_id_pedido(id_pedido)
-       
-     
+
+
     # @jwt_required
     def delete(self):
        parametro = request.get_json(force=True)
@@ -177,7 +177,7 @@ class Status(Resource):
            return {'message': 'Status deletado com sucesso.'}, 200
        except:
            return {'message': 'Erro ao deletar status.'}, 500
-    
+
 class Solicitante(Resource):
     # @jwt_required
     def post(self):
@@ -191,14 +191,14 @@ class Solicitante(Resource):
            }
        except:
            return {'message': 'Erro ao criar solicitante.'}, 500
-    
+
     # @jwt_required
     def get(self):
        parametro = request.get_json(force=True)
        id = parametro.get('id')
        return SolicitanteModel.return_by_id(id)
-       
-     
+
+
     # @jwt_required
     def delete(self):
        parametro = request.get_json(force=True)
@@ -222,14 +222,14 @@ class Solicitacao(Resource):
            }
        except:
            return {'message': 'Erro ao criar solicitacao.'}, 500
-    
+
     # @jwt_required
     def get(self):
        parametro = request.get_json(force=True)
        id = parametro.get('id')
        return SolicitacaoModel.return_by_id(id)
-       
-     
+
+
     # @jwt_required
     def delete(self):
        parametro = request.get_json(force=True)
@@ -239,4 +239,3 @@ class Solicitacao(Resource):
            return {'message': 'Solicitacao deletada com sucesso.'}, 200
        except:
            return {'message': 'Erro ao deletar solicitacao.'}, 500
-    

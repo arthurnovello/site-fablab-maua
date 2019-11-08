@@ -45,17 +45,17 @@
     <div class="container-fluid mb-5">
         <div class="row">
             <div class="col-12">
-                <form id="agendamento" onsubmit="sendHttpRequest('POST', 'localhost:5000/Pedido', $('#agendamento').serialize())">
+                <form id="agendamento">
                     <div class="row">
                         <div class="col-6">
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                    <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="inputNome">Nome</label>
-                                    <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+                                    <input type="text" class="form-control" id="inputNome" name="nome" placeholder="Nome">
                                 </div>
                             </div>
                         </div>
@@ -66,25 +66,25 @@
                                         <legend class="col-form-label col-sm-12 pt-0">Relação IMT</legend>
                                         <div class="col-sm-12">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gridRadios" id="aluno" value="aluno" checked>
+                                                <input class="form-check-input" type="radio" name="solicitante" id="aluno" value="1" checked>
                                                 <label class="form-check-label" for="aluno">
                                                     Aluno
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gridRadios" id="exAluno" value="exAluno">
+                                                <input class="form-check-input" type="radio" name="solicitante" id="exAluno" value="3">
                                                 <label class="form-check-label" for="exAluno">
                                                     Ex-aluno
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gridRadios" id="funcionario" value="funcionario">
+                                                <input class="form-check-input" type="radio" name="solicitante" id="funcionario" value="2">
                                                 <label class="form-check-label" for="funcionario">
                                                     Funcionario
                                                 </label>
                                             </div>
                                             <div class="form-check d-flex">
-                                                <input class="form-check-input" type="radio" name="gridRadios" id="outro" value="outro">
+                                                <input class="form-check-input" type="radio" name="solicitante" id="outro" value="4">
                                                 <label class="form-check-label mr-2" for="outro">
                                                     Outro
                                                 </label>
@@ -101,17 +101,30 @@
                                     <legend class="col-form-label col-sm-12 pt-0">Solicitação de:</legend>
                                     <div class="col-sm-12">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="solicitacaoRadios" id="agendamento-radio" value="agendamento-radio" checked>
+                                            <input class="form-check-input" type="radio" name="solicitacao" id="agendamento-radio" value="1" checked>
                                             <label class="form-check-label" for="agendamento-radio">
                                                 Agendamento
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="solicitacaoRadios" id="fabricacao-radio" value="fabricacao-radio">
+                                            <input class="form-check-input" type="radio" name="solicitacao" id="fabricacao-radio" value="2">
                                             <label class="form-check-label" for="fabricacao-radio">
                                                 Fabricação
                                             </label>
                                         </div>
+                                        </div>
+													<div class="form-check">
+															<input class="form-check-input" type="radio" name="solicitacao" 				  id="fabricacao-radio" value="3">
+															<label class="form-check-label" for="fabricacao-radio">
+																Router
+															</label>
+													</div>
+													<div class="form-check">
+															<input class="form-check-input" type="radio" name="solicitacao" 				  id="fabricacao-radio" value="4">
+															<label class="form-check-label" for="fabricacao-radio">
+																Outros
+															</label>
+													</div>
                                     </div>
                                 </div>
                             </fieldset>
@@ -120,7 +133,7 @@
                     <div class="row aluno-div form-group">
                         <div class="col-md-6">
                             <label for="inputRa">R.A.</label>
-                            <input type="email" class="form-control" id="inputRa" placeholder="R.A">
+                            <input type="text" class="form-control" id="inputRa" placeholder="R.A">
                         </div>
                         <div class="col-md-6">
                             <label for="inputCurso">Curso</label>
@@ -202,7 +215,7 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+                    <button type="submit" id="btnEnviar" class="btn btn-primary mt-3">Enviar</button>
                 </form>
             </div>
         </div>
