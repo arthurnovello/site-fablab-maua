@@ -19,6 +19,8 @@ class PedidoModel(db.Model):
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
+        db.session.refresh(self)
+        return self.id
 
     @classmethod
     def return_by_email(cls, email):
@@ -267,7 +269,7 @@ class StatusModel(db.Model):
         
         return {'Status': list(map(lambda x: to_json(x),
                 cls.query
-                .filter(cls.id == id_pedido)
+                .filter(cls.id_pedido == id_pedido)
                 ))}
        
 

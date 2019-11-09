@@ -10,7 +10,7 @@ $(document).ready(function () {
         } else {
             $('#outroInput').addClass('hide');
         }
-        if ($('#agendamento-radio').is(':checked')) {
+        if ($('#agendamento-radio').val() == 1) {
             $('#agendamento-div').fadeIn('fast');
         } else {
             $('#agendamento-div').fadeOut('fast');
@@ -74,11 +74,50 @@ $(document).ready(function () {
         })
         .catch((err) => {console.log(err, err.data); alert(err.data)});
     });
+
+    $("#btnConsultar").click(function(evt){
+      evt.preventDefault();
+      $("#filtroPedidos").html("");
+      var result = $("#consultaPedido").serializeArray().reduce((acc, cur) => {
+        return {
+          ...acc,
+          [cur.name]: cur.value
+        }
+      }, {});
+
+      sendHttpRequest('POST', 'http://localhost:5000/Pedido/', result).then((res => {
+        console.log(res)
+        res.Status.forEach(option => {
+        console.log(option)
+        // var opt = document.createElement('input');
+        if(option.concluido == false){
+          document.getElementById('filtroPedidos').innerText = ("Ultimo pedido ainda não foi concluído");
+        }
+        else{
+          document.getElementById('filtroPedidos').innerText = ("Pedido concluído");
+        }
+        // opt.value = option.concluido
+        // document.getElementById('filtroPedidos').append(opt);
+        });
+        }));
+      });
+
+
+
+    $("#inputEmail").focusout(function(evt){
+      sendHttpRequest('POST', 'http://localhost:5000/Pessoa/',{"email":$("#inputEmail").val()}).then(res => {
+        res.Pessoa.forEach(option => {
+          $("#inputNome").val(option.nome);
+          $("#inputEmail").val(option.email);
+          $("#inputRa").val(option.ra);
+        });
+      });
+    });
+
 });
 
 const sendHttpRequest = (method, url, data) => {
   console.log(data)
-  
   return fetch(url, {
     method: method,
     body: JSON.stringify(data),

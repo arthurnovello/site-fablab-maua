@@ -9,50 +9,59 @@ class Pedido(Resource):
     def post(self):
        parametro = request.get_json(force=True)
        email = parametro.get('email')
-       verificacao = PessoaModel.return_by_email(email)
-       try:
-           verificacao = verificacao['Pessoa'][0]
-           id_pessoa = verificacao.get('id')
-       except:
-           nome = parametro.get('nome')
-           ra = parametro.get('ra')
-           nova_pessoa = PessoaModel(nome=nome,email=email,ra=ra)
-           nova_pessoa.save_to_db()
-           verificacao2 = PessoaModel.return_by_email(email)
-           verificacao2 = verificacao2['Pessoa'][0]
-           id_pessoa = verificacao2.get('id')
+       nome = parametro.get('nome')
+       if (nome == None):
+           pedidofiltro = PedidoModel.return_by_email(email)
+           idfiltro = pedidofiltro['Pedidos'][len(pedidofiltro['Pedidos'])-1].get('id')
+           print(idfiltro)
+           return StatusModel.return_by_id_pedido(idfiltro)
+       else:
+            verificacao = PessoaModel.return_by_email(email)
+            try:
+                verificacao = verificacao['Pessoa'][0]
+                id_pessoa = verificacao.get('id')
+            except:
+                nome = parametro.get('nome')
+                ra = parametro.get('ra')
+                nova_pessoa = PessoaModel(nome=nome,email=email,ra=ra)
+                nova_pessoa.save_to_db()
+                verificacao2 = PessoaModel.return_by_email(email)
+                verificacao2 = verificacao2['Pessoa'][0]
+                id_pessoa = verificacao2.get('id')
 
-       id_solicitante = parametro.get('id_solicitante')
-       id_sala = parametro.get('id_sala')
-       id_curso = parametro.get('id_curso')
-       id_solicitacao = parametro.get('id_solicitacao')
-       data = parametro.get('data')
-       duracao = parametro.get('duracao')
-       qtd_pessoas = parametro.get('qtd_pessoas')
-       aprovado = parametro.get('aprovado')
-       prazo = parametro.get('prazo')
-       descricao = parametro.get('descricao')
-       material_proprio = parametro.get('material_proprio')
-       material_proprio = False
-       novo_pedido = PedidoModel(
-           id_pessoa=id_pessoa,
-           id_solicitante=id_solicitante,
-           id_sala=id_sala,
-           id_curso=id_curso,
-           id_solicitacao=id_solicitacao,
-           data=data,
-           duracao=duracao,
-           qtd_pessoas=qtd_pessoas,
-        #    aprovado=aprovado,
-           prazo=prazo,
-           descricao=descricao,
-           material_proprio=material_proprio
-       )
-       try:
-           novo_pedido.save_to_db()
-           return {'message': 'Pedido criado com sucesso.'}, 201
-       except Exception as e:
-           return {'message': 'Erro ao criar pedido.' + str(e)}, 500
+            id_solicitante = parametro.get('id_solicitante')
+            id_sala = parametro.get('id_sala')
+            id_curso = parametro.get('id_curso')
+            id_solicitacao = parametro.get('id_solicitacao')
+            data = parametro.get('data')
+            duracao = parametro.get('duracao')
+            qtd_pessoas = parametro.get('qtd_pessoas')
+            aprovado = parametro.get('aprovado')
+            prazo = parametro.get('prazo')
+            descricao = parametro.get('descricao')
+            material_proprio = parametro.get('material_proprio')
+            material_proprio = False
+            novo_pedido = PedidoModel(
+                id_pessoa=id_pessoa,
+                id_solicitante=id_solicitante,
+                id_sala=id_sala,
+                id_curso=id_curso,
+                id_solicitacao=id_solicitacao,
+                data=data,
+                duracao=duracao,
+                qtd_pessoas=qtd_pessoas,
+            #    aprovado=aprovado,
+                prazo=prazo,
+                descricao=descricao,
+                material_proprio=material_proprio
+            )
+            try:
+                id_pedido = novo_pedido.save_to_db()
+                novo_status = StatusModel(id_pedido=id_pedido)
+                novo_status.save_to_db()
+                return {'message': 'Pedido criado com sucesso.'}, 201
+            except Exception as e:
+                return {'message': 'Erro ao criar pedido.' + str(e)}, 500
 
     # @jwt_required
     def get(self):
@@ -106,18 +115,21 @@ class Pessoa(Resource):
        nome = parametro.get('nome')
        email = parametro.get('email')
        ra = parametro.get('ra')
-       nova_pessoa = PessoaModel(nome=nome,email=email,ra=ra)
-       try:
-           nova_pessoa.save_to_db()
-           return {'message': 'Pessoa adicionada com sucesso.'}, 201
-       except:
-           return {'message': 'Erro ao adicionar pessoa.'}, 500
+       if (nome == None):
+           return PessoaModel.return_by_email(email)
+       else:
+           try:
+               nova_pessoa = PessoaModel(nome=nome, email=email, ra=ra)
+               nova_pessoa.save_to_db()
+               return {'message': 'Pessoa adicionada com sucesso.'}, 201
+           except:
+               return {'message': 'Erro ao adicionar pessoa.'}, 500
 
     # @jwt_required
     def get(self):
        parametro = request.get_json(force=True)
-       id = parametro.get('id')
-       return PessoaModel.return_by_id(id)
+       email = parametro.get('email')
+       return PessoaModel.return_by_email(email)
 
 
     # @jwt_required
