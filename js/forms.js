@@ -1,12 +1,11 @@
 $(document).ready(function () {
-  alert("LUcaGAy");
     $('#agendamento').change(function() {
-        if (($('#aluno').is(':checked')) || ($('#exAluno').is(':checked'))) {
+        if (($('#solicitante').val() == 1 || $('#solicitante').val() == 3)) {
             $('.aluno-div').fadeIn('fast');
         } else {
             $('.aluno-div').fadeOut('fast');
         }
-        if ($('#outro').is(':checked')) {
+        if ($('#outro').val() == 4) {
             $('#outroInput').removeClass('hide');
         } else {
             $('#outroInput').addClass('hide');
@@ -22,11 +21,43 @@ $(document).ready(function () {
             $('#fabricacao-div').addClass('hide');
         }
     });
-    // Add the following code if you want the name of the file appear on select
-    $(".custom-file-input").on("change", function() {
-        var fileName = $(this).val().split("\\").pop();
-        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+
+    sendHttpRequest('GET', 'http://localhost:5000/Curso/').then(res => {
+      res.Cursos.forEach(option => {
+        var opt = document.createElement('option');
+        opt.innerText = option.curso;
+        opt.value = option.id
+        document.getElementById('curso').append(opt);
+      });
     });
+
+    sendHttpRequest('GET', 'http://localhost:5000/Sala/').then(res => {
+      res.Salas.forEach(option => {
+        var opt = document.createElement('option');
+        opt.innerText = option.sala;
+        opt.value = option.id
+        document.getElementById('sala').append(opt);
+      });
+    });
+
+    sendHttpRequest('GET', 'http://localhost:5000/Solicitante/').then(res => {
+      res.Solicitantes.forEach(option => {
+        var opt = document.createElement('option');
+        opt.innerText = option.solicitante;
+        opt.value = option.id
+        document.getElementById('solicitante').append(opt);
+      });
+    });
+
+    sendHttpRequest('GET', 'http://localhost:5000/Solicitacao/').then(res => {
+      res.Solicitacoes.forEach(option => {
+        var opt = document.createElement('option');
+        opt.innerText = option.solicitacao;
+        opt.value = option.id
+        document.getElementById('solicitacao').append(opt);
+      });
+    });
+
     $("#btnEnviar").click(function(evt){
       evt.preventDefault();
       var result = $("#agendamento").serializeArray().reduce((acc, cur) => {
@@ -36,38 +67,31 @@ $(document).ready(function () {
         }
       }, {});
 
-      /*
-      sendHttpRequest('GET', 'http://localhost:5000/Selects/').then(res => {
-        res.options.forEach(option => {
-          var opt = document.createElement('option');
-          opt.innerText = option;
-          document.getElementById('sala').append(opt);
-        });
-      });
-      */
       sendHttpRequest('POST', 'http://localhost:5000/Pedido/', result)
         .then(function(response){
           console.log(response);
+          alert(response.message)
         })
-        .catch((err) => {console.log(err, err.data)});
+        .catch((err) => {console.log(err, err.data); alert(err.data)});
     });
-
-    const sendHttpRequest = (method, url, data) => {
-        console.log(data)
-        return fetch(url, {
-          method: method,
-          body: JSON.stringify(data),
-          headers: data ? { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } : {}
-        }).then(response => {
-          if (response.status >= 400) {
-            return response.json().then(errResData => {
-              const error = new Error('Something went wrong requesting your data');
-              error.data = errResData;
-              throw error;
-            });
-          }
-
-          return response.json();
-        });
-      }
 });
+
+const sendHttpRequest = (method, url, data) => {
+  console.log(data)
+  
+  return fetch(url, {
+    method: method,
+    body: JSON.stringify(data),
+    headers: data ? { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } : {}
+  }).then(response => {
+    if (response.status >= 400) {
+      return response.json().then(errResData => {
+        const error = new Error('Something went wrong requesting your data');
+        error.data = errResData;
+        throw error;
+      });
+    }
+
+    return response.json();
+  });
+}

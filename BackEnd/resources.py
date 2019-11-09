@@ -8,7 +8,20 @@ class Pedido(Resource):
     # @jwt_required
     def post(self):
        parametro = request.get_json(force=True)
-       id_pessoa = parametro.get('id_pessoa')
+       email = parametro.get('email')
+       verificacao = PessoaModel.return_by_email(email)
+       try:
+           verificacao = verificacao['Pessoa'][0]
+           id_pessoa = verificacao.get('id')
+       except:
+           nome = parametro.get('nome')
+           ra = parametro.get('ra')
+           nova_pessoa = PessoaModel(nome=nome,email=email,ra=ra)
+           nova_pessoa.save_to_db()
+           verificacao2 = PessoaModel.return_by_email(email)
+           verificacao2 = verificacao2['Pessoa'][0]
+           id_pessoa = verificacao2.get('id')
+
        id_solicitante = parametro.get('id_solicitante')
        id_sala = parametro.get('id_sala')
        id_curso = parametro.get('id_curso')
@@ -20,7 +33,7 @@ class Pedido(Resource):
        prazo = parametro.get('prazo')
        descricao = parametro.get('descricao')
        material_proprio = parametro.get('material_proprio')
-
+       material_proprio = False
        novo_pedido = PedidoModel(
            id_pessoa=id_pessoa,
            id_solicitante=id_solicitante,
@@ -30,7 +43,7 @@ class Pedido(Resource):
            data=data,
            duracao=duracao,
            qtd_pessoas=qtd_pessoas,
-           aprovado=aprovado,
+        #    aprovado=aprovado,
            prazo=prazo,
            descricao=descricao,
            material_proprio=material_proprio
@@ -71,9 +84,10 @@ class Curso(Resource):
 
     # @jwt_required
     def get(self):
-       parametro = request.get_json(force=True)
-       id = parametro.get('id')
-       return CursoModel.return_by_id(id)
+    #    parametro = request.get_json(force=True)
+    #    id = parametro.get('id')
+    #    return CursoModel.return_by_id(id)
+       return CursoModel.return_all()
 
     # @jwt_required
     def delete(self):
@@ -130,9 +144,10 @@ class Sala(Resource):
 
     # @jwt_required
     def get(self):
-       parametro = request.get_json(force=True)
-       id = parametro.get('id')
-       return SalaModel.return_by_id(id)
+    #    parametro = request.get_json(force=True)
+    #    id = parametro.get('id')
+    #    return SalaModel.return_by_id(id)
+       return SalaModel.return_all()
 
 
     # @jwt_required
@@ -194,9 +209,10 @@ class Solicitante(Resource):
 
     # @jwt_required
     def get(self):
-       parametro = request.get_json(force=True)
-       id = parametro.get('id')
-       return SolicitanteModel.return_by_id(id)
+    #    parametro = request.get_json(force=True)
+    #    id = parametro.get('id')
+    #    return SolicitanteModel.return_by_id(id)
+        return SolicitanteModel.return_all()
 
 
     # @jwt_required
@@ -225,9 +241,10 @@ class Solicitacao(Resource):
 
     # @jwt_required
     def get(self):
-       parametro = request.get_json(force=True)
-       id = parametro.get('id')
-       return SolicitacaoModel.return_by_id(id)
+    #    parametro = request.get_json(force=True)
+    #    id = parametro.get('id')
+    #    return SolicitacaoModel.return_by_id(id)
+        return SolicitacaoModel.return_all()
 
 
     # @jwt_required

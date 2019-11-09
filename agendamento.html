@@ -63,33 +63,43 @@
                             <fieldset class="form-group">
                                 <div class="row">
                                     <div class="col-12">
-                                        <legend class="col-form-label col-sm-12 pt-0">Relação IMT</legend>
-                                        <div class="col-sm-12">
+                                        <!-- <legend class="col-form-label col-sm-12 pt-0">Relação IMT</legend> -->
+                                        <!-- <div class="col-sm-12">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="solicitante" id="aluno" value="1" checked>
+                                                <input class="form-check-input" type="radio" name="id_solicitante" id="aluno" value="1" checked>
                                                 <label class="form-check-label" for="aluno">
                                                     Aluno
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="solicitante" id="exAluno" value="3">
+                                                <input class="form-check-input" type="radio" name="id_solicitante" id="exAluno" value="3">
                                                 <label class="form-check-label" for="exAluno">
                                                     Ex-aluno
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="solicitante" id="funcionario" value="2">
+                                                <input class="form-check-input" type="radio" name="id_solicitante" id="funcionario" value="2">
                                                 <label class="form-check-label" for="funcionario">
                                                     Funcionario
                                                 </label>
                                             </div>
                                             <div class="form-check d-flex">
-                                                <input class="form-check-input" type="radio" name="solicitante" id="outro" value="4">
+                                                <input class="form-check-input" type="radio" name="id_solicitante" id="outro" value="4">
                                                 <label class="form-check-label mr-2" for="outro">
                                                     Outro
                                                 </label>
                                                 <input type="text" class="form-control outro hide" id="outroInput" placeholder="Especifique">
                                             </div>
+                                        </div> -->
+                                        <div class="col-md-12">
+                                            <label for="inputCurso">Relação IMT</label>
+                                            <select class="form-control" name="id_solicitante" id="solicitante">
+                                            </select>
+                                            <div class="mt-2">
+                                            <label for="inputSolicitacao">Solicitação de:</label>
+                                            <select class="form-control" name="id_solicitacao" id="solicitacao">
+                                            </select>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -98,77 +108,73 @@
                         <div class="col-3">
                             <fieldset class="form-group">
                                 <div class="row solicitacao">
-                                    <legend class="col-form-label col-sm-12 pt-0">Solicitação de:</legend>
+                                    <!-- <legend class="col-form-label col-sm-12 pt-0">Solicitação de:</legend> -->
                                     <div class="col-sm-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="solicitacao" id="agendamento-radio" value="1" checked>
-                                            <label class="form-check-label" for="agendamento-radio">
-                                                Agendamento
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="solicitacao" id="fabricacao-radio" value="2">
-                                            <label class="form-check-label" for="fabricacao-radio">
-                                                Fabricação
-                                            </label>
-                                        </div>
-                                        </div>
+                                            <div class="col-md-12">
+
+                                                    <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="id_solicitacao" id="agendamento-radio" value="1" checked>
+                                                            <label class="form-check-label" for="agendamento-radio">
+                                                                Agendamento
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="id_solicitacao" id="fabricacao-radio" value="2">
+                                                            <label class="form-check-label" for="fabricacao-radio">
+                                                                Fabricação
+                                                            </label>
+                                                        </div>
+                                                </div>
+
+                                      
+                                         <!-- 
 													<div class="form-check">
-															<input class="form-check-input" type="radio" name="solicitacao" 				  id="fabricacao-radio" value="3">
+															<input class="form-check-input" type="radio" name="id_solicitacao" 				  id="fabricacao-radio" value="3">
 															<label class="form-check-label" for="fabricacao-radio">
 																Router
 															</label>
 													</div>
 													<div class="form-check">
-															<input class="form-check-input" type="radio" name="solicitacao" 				  id="fabricacao-radio" value="4">
+															<input class="form-check-input" type="radio" name="id_solicitacao" 				  id="fabricacao-radio" value="4">
 															<label class="form-check-label" for="fabricacao-radio">
 																Outros
 															</label>
-													</div>
+                                                    </div> -->
+                                                </div>
                                     </div>
                                 </div>
                             </fieldset>
                         </div>
-                    </div>
+                    
                     <div class="row aluno-div form-group">
                         <div class="col-md-6">
                             <label for="inputRa">R.A.</label>
-                            <input type="text" class="form-control" id="inputRa" placeholder="R.A">
+                            <input type="text" class="form-control" name="ra" id="inputRa" placeholder="R.A">
                         </div>
                         <div class="col-md-6">
                             <label for="inputCurso">Curso</label>
-                            <input type="text" class="form-control" id="inputCurso" placeholder="Curso">
+                            <select class="form-control" name="id_curso" id="curso">
+                            </select>
                         </div>
                     </div>
 
                     <div class="row form-group" id="agendamento-div">
                         <div class="col-md-3">
                             <label for="data-agendamento">Data do Agendamento</label>
-                            <input type="date" class="form-control" id="data-agendamento" placeholder="Curso">
+                            <input type="date" class="form-control" name="data" id="data-agendamento" placeholder="Curso">
                         </div>
                         <div class="col-md-3">
                             <label for="sala">Sala</label>
-                            <select class="form-control" id="sala">
-                                <option>E01</option>
-                                <option>E02</option>
-                                <option>D04</option>
+                            <select class="form-control" name="id_sala" id="sala">
                             </select>
                         </div>
                         <div class="col-md-3">
-                            <label for="duracao">Duração</label>
-                            <select class="form-control" id="duracao">
-                                <option>1 hora</option>
-                                <option>2 horas</option>
-                                <option>3 horas</option>
-                            </select>
+                            <label for="duracao">Duração (Horas)</label>
+                            <input type="number" class="form-control" name="duracao" id="duracao" placeholder="">
                         </div>
                         <div class="col-md-3">
-                            <label for="pessoas">Pessoas</label>
-                            <select class="form-control" id="pessoas">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
+                            <label for="pessoas">Qtd. Pessoas</label>
+                            <input type="number" class="form-control" name="qtd_pessoas" id="pessoas" placeholder="">
                         </div>
                     </div>
 
@@ -184,13 +190,13 @@
                             </div>
                             <div class="col-md-9">
                                 <label for="inputDescricao">Descrição</label>
-                                <input type="email" class="form-control" id="inputDescricao" placeholder="Breve explicação sobre o projeto">
+                                <input type="email" class="form-control" name="descricao" id="inputDescricao" placeholder="Breve explicação sobre o projeto">
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-3">
                                 <label for="inputMaterial">Material</label>
-                                <input type="email" class="form-control" id="inputMaterial" placeholder="Material utilizado para fabricação">
+                                <input type="checkbox" class="form-control" name="" id="inputMaterial" placeholder="Material utilizado para fabricação">
                             </div>
                             <div class="col-md-3">
                                 <label for="materialProprio">Material Próprio</label>
@@ -201,7 +207,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="prazo">Prazo</label>
-                                <input type="date" class="form-control" id="prazo" placeholder="Curso">
+                                <input type="date" class="form-control" name="prazo" id="prazo" placeholder="Curso">
                             </div>
                             <div class="col-md-3">
                                 <label>Arquivo</label>

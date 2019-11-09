@@ -67,7 +67,16 @@ class CursoModel(db.Model):
                 'curso': x.curso
             }
         return {'Curso': list(map(lambda x: to_json(x),
-                cls.query.filter_by(id=id)))}        
+                cls.query.filter_by(id=id)))}
+    @classmethod
+    def return_all(cls):
+        def to_json(x):
+            return {
+                'id': x.id,
+                'curso': x.curso
+            }
+        return {'Cursos': list(map(lambda x: to_json(x),
+                cls.query.all()))}    
 
 
     @classmethod
@@ -95,6 +104,16 @@ class SolicitanteModel(db.Model):
             }
         return {'Solicitante': list(map(lambda x: to_json(x),
                 cls.query.filter_by(id=id)))}
+
+    @classmethod
+    def return_all(cls):
+        def to_json(x):
+            return {
+                'id': x.id,
+                'solicitante': x.solicitante
+            }
+        return {'Solicitantes': list(map(lambda x: to_json(x),
+                cls.query.all()))}  
         
 
     @classmethod
@@ -121,6 +140,16 @@ class SalaModel(db.Model):
             }
         return {'Sala': list(map(lambda x: to_json(x),
                 cls.query.filter_by(id=id)))} 
+
+    @classmethod
+    def return_all(cls):
+        def to_json(x):
+            return {
+                'id': x.id,
+                'sala': x.sala
+            }
+        return {'Salas': list(map(lambda x: to_json(x),
+                cls.query.all()))}  
        
 
     @classmethod
@@ -148,6 +177,17 @@ class SolicitacaoModel(db.Model):
             }
         return {'Solicitacao': list(map(lambda x: to_json(x),
                 cls.query.filter_by(id=id)))}
+
+
+    @classmethod
+    def return_all(cls):
+        def to_json(x):
+            return {
+                'id': x.id,
+                'solicitacao': x.solicitacao
+            }
+        return {'Solicitacoes': list(map(lambda x: to_json(x),
+                cls.query.all()))}  
        
 
     @classmethod
@@ -178,7 +218,20 @@ class PessoaModel(db.Model):
 
             }
         return {'Pessoa': list(map(lambda x: to_json(x),
-                cls.query.filter_by(id=id)))}        
+                cls.query.filter_by(id=id)))}      
+
+    @classmethod
+    def return_by_email(cls, email):
+        def to_json(x):
+            return {
+                'id': x.id,
+                'nome': x.nome,
+                'email': x.email,
+                'ra': x.ra
+
+            }
+        return {'Pessoa': list(map(lambda x: to_json(x),
+                cls.query.filter_by(email=email)))}    
        
 
     @classmethod
