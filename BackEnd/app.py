@@ -1,10 +1,14 @@
-import os
-import time
+# import os
 import re
 from slackclient import SlackClient
+import time
 
-slack_client = SlackClient(os.environ.get('SLACK_BOT_FB'))
+
+# slack_client = SlackClient(os.environ.get('SLACK_BOT_FB'))
 starterbot_id = None
+slack_client = \
+        SlackClient('')
+
 
 RTM_READ_DELAY = 1
 EXAMPLE_COMMAND = "do"
