@@ -1,0 +1,37 @@
+label{
+    margin-bottom: 0;
+}
+
+.form-group{
+    margin-bottom: 8px;
+}
+
+.outro{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    padding: 0 12px;
+    height: 1.75rem;
+    width: 50%;
+}
+
+.outro:focus{
+    border-color:#ccc;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.hide{
+    display: none;
+}
+
+#dropdownMenuButton{
+    width: 100%;
+}
+
+#filtroPedidos ul li{
+    list-style: none;
+}
