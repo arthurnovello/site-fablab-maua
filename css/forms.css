@@ -31,3 +31,7 @@ label{
 #dropdownMenuButton{
     width: 100%;
 }
+
+#filtroPedidos ul li{
+    list-style: none;
+}

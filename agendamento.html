@@ -63,7 +63,6 @@
                         <div class="col-3">
                             <fieldset class="form-group">
                                 <div class="row">
-                                    <div class="col-12">
                                         <!-- <legend class="col-form-label col-sm-12 pt-0">Relação IMT</legend> -->
                                         <!-- <div class="col-sm-12">
                                             <div class="form-check">
@@ -101,7 +100,6 @@
                                             <select class="form-control" name="id_solicitacao" id="solicitacao">
                                             </select>
                                         </div>
-                                        </div>
                                     </div>
                                 </div>
                             </fieldset>
@@ -114,13 +112,13 @@
                                             <div class="col-md-12">
 
                                                     <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="id_solicitacao" id="agendamento-radio" value="1" checked>
+                                                            <input class="form-check-input" type="radio" name="check" id="agendamento-radio" value="1" checked>
                                                             <label class="form-check-label" for="agendamento-radio">
                                                                 Agendamento
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="id_solicitacao" id="fabricacao-radio" value="2">
+                                                            <input class="form-check-input" type="radio" name="check" id="fabricacao-radio" value="2">
                                                             <label class="form-check-label" for="fabricacao-radio">
                                                                 Fabricação
                                                             </label>
@@ -181,14 +179,11 @@
 
                     <div class="form-group hide" id="fabricacao-div">
                         <div class="row">
-                            <div class="col-md-3">
+                            <!-- <div class="col-md-3">
                                 <label for="processo">Processo</label>
-                                <select class="form-control" id="processo">
-                                    <option>Corte</option>
-                                    <option>Laser</option>
-                                    <option>Pintura</option>
+                                <select class="form-control" name="id_solicitacao" id="solicitacao">
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="col-md-9">
                                 <label for="inputDescricao">Descrição</label>
                                 <input type="email" class="form-control" name="descricao" id="inputDescricao" placeholder="Breve explicação sobre o projeto">
@@ -197,15 +192,15 @@
                         <div class="row mt-2">
                             <div class="col-md-3">
                                 <label for="inputMaterial">Material</label>
-                                <input type="checkbox" class="form-control" name="" id="inputMaterial" placeholder="Material utilizado para fabricação">
+                                <input type="checkbox" class="form-control" name="material_proprio" id="inputMaterial" placeholder="Material utilizado para fabricação">
                             </div>
-                            <div class="col-md-3">
+                            <!-- <div class="col-md-3">
                                 <label for="materialProprio">Material Próprio</label>
                                 <select class="form-control" id="materialProprio">
                                     <option>Sim</option>
                                     <option>Não</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="col-md-3">
                                 <label for="prazo">Prazo</label>
                                 <input type="date" class="form-control" name="prazo" id="prazo" placeholder="Curso">
@@ -227,27 +222,29 @@
             </div>
         </div>
         <div class="row mt-4">
-           
-                <div class="col-12">
+        
+            <div class="col-12">
                 <div class="row">
-                        
-                        <div class="col-12">
-                                <h1>Consultar Status do último pedido via email</h1>
-            <form id="consultaPedido">
-                    <div class="row">
-                            <div class="form-group col-md-12">
-                                <label for="inputEmail">Email</label>
-                                <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+        
+                    <div class="col-12">
+                        <h1>Consultar Status do último pedido via email</h1>
+                        <form id="consultaPedido">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+                                </div>
                             </div>
+                            <button type="submit" id="btnConsultar" class="btn btn-primary mt-3">Consultar</button>
+                        </form>
+                        <div class="">
+                        <div id="filtroPedidos" class="mt-4 col-12">
+        
                         </div>
-                        <button type="submit" id="btnConsultar" class="btn btn-primary mt-3">Consultar</button>
-            </form>
-            <div id="filtroPedidos" class="mt-4">
-
+                    </div>
+                    </div>
+                </div>
             </div>
-                        </div>
-                </div>
-                </div>
         </div>
     </div>
 
