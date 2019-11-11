@@ -7,3 +7,6 @@ npm-debug.log
 */env
 BackEnd/env
 ENV
+*/__pycache__
+BACKEND/__pycache__
+BackEnd/__pycache__
