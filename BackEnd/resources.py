@@ -1,8 +1,10 @@
 from flask_restful import Resource, reqparse
 from flask import request
-from models import *
+from models import CursoModel, PedidoModel, PessoaModel, SalaModel, \
+                    SolicitacaoModel, SolicitanteModel, StatusModel
 # from flask_jwt_extended import jwt_required
 parser = reqparse.RequestParser()
+
 
 class Pedido(Resource):
     # @jwt_required
@@ -50,7 +52,6 @@ class Pedido(Resource):
                 data=data,
                 duracao=duracao,
                 qtd_pessoas=qtd_pessoas,
-            #    aprovado=aprovado,
                 prazo=prazo,
                 descricao=descricao,
                 material_proprio=material_proprio
@@ -78,6 +79,7 @@ class Pedido(Resource):
            return {'message': 'Pedido deletado com sucesso.'}, 200
        except:
            return {'message': 'Erro ao deletar pedido.'}, 500
+
 
 class Curso(Resource):
     # @jwt_required
@@ -108,6 +110,7 @@ class Curso(Resource):
        except:
            return {'message': 'Erro ao deletar curso.'}, 500
 
+
 class Pessoa(Resource):
     # @jwt_required
     def post(self):
@@ -131,7 +134,6 @@ class Pessoa(Resource):
        email = parametro.get('email')
        return PessoaModel.return_by_email(email)
 
-
     # @jwt_required
     def delete(self):
        parametro = request.get_json(force=True)
@@ -141,6 +143,7 @@ class Pessoa(Resource):
            return {'message': 'Pessoa deletada com sucesso.'}, 200
        except:
            return {'message': 'Erro ao deletar pessoa.'}, 500
+
 
 class Sala(Resource):
     # @jwt_required
@@ -161,7 +164,6 @@ class Sala(Resource):
     #    return SalaModel.return_by_id(id)
        return SalaModel.return_all()
 
-
     # @jwt_required
     def delete(self):
        parametro = request.get_json(force=True)
@@ -171,6 +173,7 @@ class Sala(Resource):
            return {'message': 'Sala deletada com sucesso.'}, 200
        except:
            return {'message': 'Erro ao deletar sala.'}, 500
+
 
 class Status(Resource):
     # @jwt_required
@@ -194,7 +197,6 @@ class Status(Resource):
        id_pedido = parametro.get('id_pedido')
        return StatusModel.return_by_id_pedido(id_pedido)
 
-
     # @jwt_required
     def delete(self):
        parametro = request.get_json(force=True)
@@ -204,6 +206,7 @@ class Status(Resource):
            return {'message': 'Status deletado com sucesso.'}, 200
        except:
            return {'message': 'Erro ao deletar status.'}, 500
+
 
 class Solicitante(Resource):
     # @jwt_required
@@ -226,7 +229,6 @@ class Solicitante(Resource):
     #    return SolicitanteModel.return_by_id(id)
         return SolicitanteModel.return_all()
 
-
     # @jwt_required
     def delete(self):
        parametro = request.get_json(force=True)
@@ -236,6 +238,7 @@ class Solicitante(Resource):
            return {'message': 'Solicitante deletado com sucesso.'}, 200
        except:
            return {'message': 'Erro ao deletar solicitante.'}, 500
+
 
 class Solicitacao(Resource):
     # @jwt_required
@@ -257,7 +260,6 @@ class Solicitacao(Resource):
     #    id = parametro.get('id')
     #    return SolicitacaoModel.return_by_id(id)
         return SolicitacaoModel.return_all()
-
 
     # @jwt_required
     def delete(self):

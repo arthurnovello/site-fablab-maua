@@ -10,3 +10,4 @@ ENV
 */__pycache__
 BACKEND/__pycache__
 BackEnd/__pycache__
+*/__pycache__/
