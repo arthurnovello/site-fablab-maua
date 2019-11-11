@@ -15,7 +15,6 @@ class Pedido(Resource):
        if (nome == None):
            pedidofiltro = PedidoModel.return_by_email(email)
            idfiltro = pedidofiltro['Pedidos'][len(pedidofiltro['Pedidos'])-1].get('id')
-           print(idfiltro)
            return StatusModel.return_by_id_pedido(idfiltro)
        else:
             verificacao = PessoaModel.return_by_email(email)
@@ -38,11 +37,15 @@ class Pedido(Resource):
             data = parametro.get('data')
             duracao = parametro.get('duracao')
             qtd_pessoas = parametro.get('qtd_pessoas')
-            aprovado = parametro.get('aprovado')
+            # aprovado = parametro.get('aprovado')
             prazo = parametro.get('prazo')
             descricao = parametro.get('descricao')
             material_proprio = parametro.get('material_proprio')
-            material_proprio = False
+            if material_proprio == "on":
+                material_proprio = True
+            else:
+                material_proprio = False
+            # material_proprio = False
             novo_pedido = PedidoModel(
                 id_pessoa=id_pessoa,
                 id_solicitante=id_solicitante,
