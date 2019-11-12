@@ -1,6 +1,8 @@
 from flask_restful import Resource, reqparse
 from flask import request
-from models import *
+import slack
+from models import CursoModel, PedidoModel, PessoaModel, SalaModel, \
+                    SolicitacaoModel, SolicitanteModel, StatusModel
 # from flask_jwt_extended import jwt_required
 parser = reqparse.RequestParser()
 
@@ -66,6 +68,7 @@ class Pedido(Resource):
                 id_pedido = novo_pedido.save_to_db()
                 novo_status = StatusModel(id_pedido=id_pedido)
                 novo_status.save_to_db()
+                slakc.send_alert(id_pedido)
                 return {'message': 'Pedido criado com sucesso.'}, 201
             except Exception as e:
                 return {'message': 'Erro ao criar pedido.' + str(e)}, 500

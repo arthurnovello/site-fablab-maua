@@ -52,6 +52,17 @@ class PedidoModel(db.Model):
                 .filter(PessoaModel.email == email)))}
 
     @classmethod
+    def atualizaAprovacao(cls,id_pedido):
+        print(id_pedido)
+        banco = cls.query.filter_by(id=id_pedido).first()
+        banco.aprovado = True
+        db.session.commit()
+        return "LUCA GAY"
+
+
+
+
+    @classmethod
     def return_by_id(cls, id):
         def to_json(x):
             return {

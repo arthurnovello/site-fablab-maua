@@ -1,3 +1,10 @@
+*/node_modules
+*/build
+*/npm-debug.log
+.env
+.DS_Store
+*/ENV
+*/none_modules
 node_modules
 build
 npm-debug.log
