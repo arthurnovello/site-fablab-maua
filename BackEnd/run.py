@@ -1,4 +1,3 @@
-import resources
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
@@ -24,6 +23,9 @@ db = SQLAlchemy(app)
 def create_tables():
     db.create_all()
 
+import views
+import models
+import resources
 
 api.add_resource(resources.Pedido, '/Pedido/')
 api.add_resource(resources.Curso, '/Curso/')
