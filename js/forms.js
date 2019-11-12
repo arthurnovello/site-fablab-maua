@@ -10,7 +10,7 @@ $(document).ready(function () {
         } else {
             $('#outroInput').addClass('hide');
         }
-        if ($('#agendamento-radio').val() == 1) {
+        if ($('#agendamento-radio').val() == 1){
             $('#agendamento-div').fadeIn('fast');
         } else {
             $('#agendamento-div').fadeOut('fast');
@@ -85,23 +85,6 @@ $(document).ready(function () {
         }
       }, {});
 
-      // sendHttpRequest('POST', 'http://localhost:5000/Pedido/', result).then((res => {
-      //   console.log(res)
-      //   res.Status.forEach(option => {
-      //   console.log(option)
-      //   // var opt = document.createElement('input');
-      //   if(option.concluido == false){
-      //     document.getElementById('filtroPedidos').innerText = ("Ultimo pedido ainda não foi concluído");
-      //   }
-      //   else{
-      //     document.getElementById('filtroPedidos').innerText = ("Pedido concluído");
-      //   }
-      //   // opt.value = option.concluido
-      //   // document.getElementById('filtroPedidos').append(opt);
-      //   });
-      //   }));
-      // });
-
       sendHttpRequest('POST', 'http://localhost:5000/Pedido/', result).then((res => {
         console.log(res)
         res.Status.forEach(option => {
@@ -117,13 +100,7 @@ $(document).ready(function () {
         liTempo.innerHTML = "Tempo:" + option.tempo;
         liConcluido.innerHTML = "Concluido:" + option.concluido;
         liTermino.innerHTML = "<Termino:" + option.termino;
-        
-        
-        // var liMassa = document.createElement('li').innerHTML(String(option.massa));
-        // var liTempo = document.createElement('li').innerHTML(String(option.tempo));
-        // var liConcluido = document.createElement('li').innerHTML(String(option.concluido));
-        // var liTermino = document.createElement('li').innerHTML(String(option.termino));
-        // opt.value = option.concluido/termino/tempo/massa
+      
         ul.appendChild(liIDPedido);
         ul.appendChild(liMassa);
         ul.appendChild(liTempo);
@@ -145,7 +122,6 @@ $(document).ready(function () {
         });
       });
     });
-
 });
 
 const sendHttpRequest = (method, url, data) => {

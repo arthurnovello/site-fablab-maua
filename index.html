@@ -8,7 +8,8 @@
 	<link rel="icon" href="img/favicon.png">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
-	<link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/forms.css">
 </head>
 
 <body>
@@ -240,60 +241,157 @@
                 <h2 class="pt-4 text-primary"><i class="fas fa-comments"></i> Agende um horário</h2>
                 <hr class="divisoria">
             </div>
+            
             <div class="row container-fluid align-items-top mb-5 px-0 justify-content-center">
-                <div class="col-12 col-lg-6">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-primary text-white border-0" id="basic-addon1"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Nome Completo" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-primary text-white border-0" id="basic-addon2"><i class="fas fa-envelope"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-primary text-white border-0" id="basic-addon3"><i class="fas fa-keyboard"></i></span>
-                        </div>
-                        <textarea class="form-control" placeholder="Sua mensagem" aria-describedby="basic-addon3" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <button type="button" class="btn btn-primary mt-2 px-5 py-2 mx-auto mb-5" data-toggle="modal" data-target="#modalExemplo">Enviar</button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Termos de uso</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body text-left">
-                                    <ol>
-                                        <li>É obrigatório a utilização de EPIs dentro do Fab Lab.</li>
-                                        <li>É obrigarótio a utilização de calças nos recintos do Fab Lab.</li>
-                                        <li>É proibido comer ou beber.</li>
-                                        <li>Cabelos longos devem estar presos durante a operação de máquinas.</li>
-                                        <li>Fique atento com mangas compridas durante a operação de máquinas.</li>
-                                    </ol>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="form-check mr-3">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" onchange="document.getElementById('enviar-email').disabled = !this.checked;">
-                                        <label class="form-check-label" for="exampleCheck1">Li e concordo os termos</label>
+                <div class="container-fluid mb-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <form id="agendamento">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label for="inputEmail">Email</label>
+                                                <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="inputNome">Nome</label>
+                                                <input type="text" class="form-control" id="inputNome" name="nome" placeholder="Nome">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="enviar-email" disabled>Enviar email</button>
+                                    <div class="col-3">
+                                        <fieldset class="form-group">
+                                            <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="inputCurso">Relação IMT</label>
+                                                        <select class="form-control" name="id_solicitante" id="solicitante">
+                                                        </select>
+                                                        <div class="mt-2">
+                                                        <label for="inputSolicitacao">Solicitação de:</label>
+                                                        <select class="form-control" name="id_solicitacao" id="solicitacao">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-3">
+                                        <fieldset class="form-group">
+                                            <div class="row solicitacao">
+                                                <div class="col-sm-12">
+                                                        <div class="col-md-12">
+                                                            <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="check" id="agendamento-radio" value="1" checked>
+                                                                    <label class="form-check-label" for="agendamento-radio">
+                                                                        Agendamento
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="check" id="fabricacao-radio" value="2">
+                                                                    <label class="form-check-label" for="fabricacao-radio">
+                                                                        Fabricação
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                
+                                <div class="row aluno-div form-group">
+                                    <div class="col-md-6">
+                                        <label for="inputRa">R.A.</label>
+                                        <input type="text" class="form-control" name="ra" id="inputRa" placeholder="R.A">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputCurso">Curso</label>
+                                        <select class="form-control" name="id_curso" id="curso">
+                                        </select>
+                                    </div>
+                                </div>
+            
+                                <div class="row form-group" id="agendamento-div">
+                                    <div class="col-md-3">
+                                        <label for="data-agendamento">Data do Agendamento</label>
+                                        <input type="date" class="form-control" name="data" id="data-agendamento" placeholder="Curso">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="sala">Sala</label>
+                                        <select class="form-control" name="id_sala" id="sala">
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="duracao">Duração (Horas)</label>
+                                        <input type="number" class="form-control" name="duracao" id="duracao" placeholder="">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="pessoas">Qtd. Pessoas</label>
+                                        <input type="number" class="form-control" name="qtd_pessoas" id="pessoas" placeholder="">
+                                    </div>
+                                </div>
+            
+                                <div class="form-group hide" id="fabricacao-div">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <label for="inputDescricao">Descrição</label>
+                                            <input type="email" class="form-control" name="descricao" id="inputDescricao" placeholder="Breve explicação sobre o projeto">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-3">
+                                            <label for="inputMaterial">Material</label>
+                                            <input type="checkbox" class="form-control" name="material_proprio" id="inputMaterial" placeholder="Material utilizado para fabricação">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="prazo">Prazo</label>
+                                            <input type="date" class="form-control" name="prazo" id="prazo" placeholder="Curso">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="container" >
+                                                <label>Upload de arquivo</label>
+                                                <div class="upload-area"  id="uploadfile">
+                                                    <span class="drag-drop">Drag and Drop file here<br/>Or<br/>Click to select file</span>
+                                                </div>
+                                            </div>                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="btnEnviar" class="btn btn-primary mt-3">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                    
+                        <div class="col-12">
+                            <div class="row">
+                    
+                                <div class="col-12">
+                                    <h2>Consultar Status do último pedido via email</h2>
+                                    <form id="consultaPedido">
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label for="inputEmail">Email</label>
+                                                <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <button type="submit" id="btnConsultar" class="btn btn-primary mt-3">Consultar</button>
+                                    </form>
+                                    <div class="">
+                                    <div id="filtroPedidos" class="mt-4 col-12">
+                    
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4 mb-5">
+            </div>
+
+            <div class="row container-fluid align-items-top mb-5 px-0 justify-content-center">
+                <div class="col-12 col-lg-10 mb-5">
                     <iframe width="100%"
                             height="250px"
                             frameborder="0" style="border:0; display:block; margin: 0 auto;"
@@ -369,6 +467,8 @@
 
     <script type="text/javascript" src="dist/jquery.min.js"></script>
     <script src="dist/app.js"></script>
+    <script type="text/javascript" src="js/forms.js"></script>
+    <script type="text/javascript" src="js/fileupload.js"></script>
 </body>
 
 </html>

@@ -63,34 +63,6 @@
                         <div class="col-3">
                             <fieldset class="form-group">
                                 <div class="row">
-                                        <!-- <legend class="col-form-label col-sm-12 pt-0">Relação IMT</legend> -->
-                                        <!-- <div class="col-sm-12">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="id_solicitante" id="aluno" value="1" checked>
-                                                <label class="form-check-label" for="aluno">
-                                                    Aluno
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="id_solicitante" id="exAluno" value="3">
-                                                <label class="form-check-label" for="exAluno">
-                                                    Ex-aluno
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="id_solicitante" id="funcionario" value="2">
-                                                <label class="form-check-label" for="funcionario">
-                                                    Funcionario
-                                                </label>
-                                            </div>
-                                            <div class="form-check d-flex">
-                                                <input class="form-check-input" type="radio" name="id_solicitante" id="outro" value="4">
-                                                <label class="form-check-label mr-2" for="outro">
-                                                    Outro
-                                                </label>
-                                                <input type="text" class="form-control outro hide" id="outroInput" placeholder="Especifique">
-                                            </div>
-                                        </div> -->
                                         <div class="col-md-12">
                                             <label for="inputCurso">Relação IMT</label>
                                             <select class="form-control" name="id_solicitante" id="solicitante">
@@ -107,39 +79,22 @@
                         <div class="col-3">
                             <fieldset class="form-group">
                                 <div class="row solicitacao">
-                                    <!-- <legend class="col-form-label col-sm-12 pt-0">Solicitação de:</legend> -->
                                     <div class="col-sm-12">
                                             <div class="col-md-12">
-
+                                                <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="check" id="agendamento-radio" value="1" checked>
+                                                        <label class="form-check-label" for="agendamento-radio">
+                                                            Agendamento
+                                                        </label>
+                                                    </div>
                                                     <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="check" id="agendamento-radio" value="1" checked>
-                                                            <label class="form-check-label" for="agendamento-radio">
-                                                                Agendamento
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="check" id="fabricacao-radio" value="2">
-                                                            <label class="form-check-label" for="fabricacao-radio">
-                                                                Fabricação
-                                                            </label>
-                                                        </div>
+                                                        <input class="form-check-input" type="radio" name="check" id="fabricacao-radio" value="2">
+                                                        <label class="form-check-label" for="fabricacao-radio">
+                                                            Fabricação
+                                                        </label>
+                                                    </div>
                                                 </div>
-
-                                      
-                                         <!-- 
-													<div class="form-check">
-															<input class="form-check-input" type="radio" name="id_solicitacao" 				  id="fabricacao-radio" value="3">
-															<label class="form-check-label" for="fabricacao-radio">
-																Router
-															</label>
-													</div>
-													<div class="form-check">
-															<input class="form-check-input" type="radio" name="id_solicitacao" 				  id="fabricacao-radio" value="4">
-															<label class="form-check-label" for="fabricacao-radio">
-																Outros
-															</label>
-                                                    </div> -->
-                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </fieldset>
@@ -179,11 +134,6 @@
 
                     <div class="form-group hide" id="fabricacao-div">
                         <div class="row">
-                            <!-- <div class="col-md-3">
-                                <label for="processo">Processo</label>
-                                <select class="form-control" name="id_solicitacao" id="solicitacao">
-                                </select>
-                            </div> -->
                             <div class="col-md-9">
                                 <label for="inputDescricao">Descrição</label>
                                 <input type="email" class="form-control" name="descricao" id="inputDescricao" placeholder="Breve explicação sobre o projeto">
@@ -194,23 +144,17 @@
                                 <label for="inputMaterial">Material</label>
                                 <input type="checkbox" class="form-control" name="material_proprio" id="inputMaterial" placeholder="Material utilizado para fabricação">
                             </div>
-                            <!-- <div class="col-md-3">
-                                <label for="materialProprio">Material Próprio</label>
-                                <select class="form-control" id="materialProprio">
-                                    <option>Sim</option>
-                                    <option>Não</option>
-                                </select>
-                            </div> -->
                             <div class="col-md-3">
                                 <label for="prazo">Prazo</label>
                                 <input type="date" class="form-control" name="prazo" id="prazo" placeholder="Curso">
                             </div>
                             <div class="col-md-3">
-                                <label>Arquivo</label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                </div>
+                                <div class="container" >
+                                    <label>Upload de arquivo</label>
+                                    <div class="upload-area"  id="uploadfile">
+                                        <span class="drag-drop">Drag and Drop file here<br/>Or<br/>Click to select file</span>
+                                    </div>
+                                </div>                        
                             </div>
                         </div>
 
@@ -306,6 +250,7 @@
     </div>
 
     <script type="text/javascript" src="dist/jquery.min.js"></script>
+    <script type="text/javascript" src="js/fileupload.js"></script>
     <script type="text/javascript" src="js/forms.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="dist/app.js"></script>
