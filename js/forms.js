@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#agendamento').change(function() {
-        if (($('#solicitante').val() == 1 || $('#solicitante').val() == 3)) {
+        if (($('#solicitante').val() == 333333 || $('#solicitante').val() == 3)) {
             $('.aluno-div').fadeIn('fast');
         } else {
             $('.aluno-div').fadeOut('fast');
@@ -91,17 +91,28 @@ $(document).ready(function () {
         console.log(option)
         var ul = document.createElement('ul');
         var liIDPedido = document.createElement('li');
+        var liAprovado = document.createElement('li');
         var liMassa = document.createElement('li');
         var liTempo = document.createElement('li');
         var liConcluido = document.createElement('li');
         var liTermino = document.createElement('li');
-        liIDPedido.innerHTML = "ID do pedido:" + option.id_pedido;
-        liMassa.innerHTML = "Massa:" + option.massa;
-        liTempo.innerHTML = "Tempo:" + option.tempo;
-        liConcluido.innerHTML = "Concluido:" + option.concluido;
-        liTermino.innerHTML = "<Termino:" + option.termino;
-      
+        liIDPedido.innerHTML = "ID do pedido: " + option.id_pedido;
+        liAprovado.innerHTML = "Aprovado: " + res.Pedidos[0].aprovado;
+        liMassa.innerHTML = "Massa: " + option.massa;
+        liTempo.innerHTML = "Tempo: " + option.tempo;
+        liConcluido.innerHTML = "Concluído: " + option.concluido;
+        liTermino.innerHTML = "Término: " + option.termino;
+        // console.log(option.termino);
+        
+        
+        // var liMassa = document.createElement('li').innerHTML(String(option.massa));
+        // var liTempo = document.createElement('li').innerHTML(String(option.tempo));
+        // var liConcluido = document.createElement('li').innerHTML(String(option.concluido));
+        // var liTermino = document.createElement('li').innerHTML(String(option.termino));
+        // opt.value = option.concluido/termino/tempo/massa
+       
         ul.appendChild(liIDPedido);
+        ul.appendChild(liAprovado)
         ul.appendChild(liMassa);
         ul.appendChild(liTempo);
         ul.appendChild(liConcluido);

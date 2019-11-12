@@ -27,6 +27,10 @@ import views
 import models
 import resources
 
+import views
+import models
+import resources
+
 api.add_resource(resources.Pedido, '/Pedido/')
 api.add_resource(resources.Curso, '/Curso/')
 api.add_resource(resources.Solicitante, '/Solicitante/')

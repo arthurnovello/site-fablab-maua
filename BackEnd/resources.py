@@ -1,7 +1,6 @@
 from flask_restful import Resource, reqparse
 from flask import request
-from models import CursoModel, PedidoModel, PessoaModel, SalaModel, \
-                    SolicitacaoModel, SolicitanteModel, StatusModel
+from models import *
 # from flask_jwt_extended import jwt_required
 parser = reqparse.RequestParser()
 
@@ -15,7 +14,11 @@ class Pedido(Resource):
        if (nome == None):
            pedidofiltro = PedidoModel.return_by_email(email)
            idfiltro = pedidofiltro['Pedidos'][len(pedidofiltro['Pedidos'])-1].get('id')
-           return StatusModel.return_by_id_pedido(idfiltro)
+           pedido = PedidoModel.return_by_id(idfiltro)
+           status = StatusModel.return_by_id_pedido(idfiltro)
+           pedido['Status'] = status['Status']
+        #    print(pedido)
+           return pedido
        else:
             verificacao = PessoaModel.return_by_email(email)
             try:

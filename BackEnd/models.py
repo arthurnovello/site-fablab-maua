@@ -72,8 +72,8 @@ class PedidoModel(db.Model):
 
         return {'Pedidos': list(map(lambda x: to_json(x),
                 cls.query
-                .filter(PessoaModel.id == cls.id_pessoa)
-                .filter(PessoaModel.email == cls.email)))}
+                .filter(PedidoModel.id == id)
+                ))}
 
     @classmethod
     def delete_by_id(cls, id):
