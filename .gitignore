@@ -3,3 +3,11 @@ build
 npm-debug.log
 .env
 .DS_Store
+*/ENV
+*/env
+BackEnd/env
+ENV
+*/__pycache__
+BACKEND/__pycache__
+BackEnd/__pycache__
+*/__pycache__/
