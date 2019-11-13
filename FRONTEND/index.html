@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="css/forms.css">
 </head>
 
 <body>
@@ -349,12 +349,21 @@
                                             <input type="date" class="form-control" name="prazo" id="prazo" placeholder="Curso">
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="container" >
+                                                <h2>Selecione o arquivo</h2>
+                                                <dl>
+                                                    <p>
+                                                        <p id="msg"></p>
+                                                        <input type="file" id="multiFiles" name="files[]" multiple="multiple"/>
+                                                        <button id="upload">Upload</button>
+                                                    </p>
+                                                </dl>
+                                            <!-- <div class="container" >
                                                 <label>Upload de arquivo</label>
                                                 <div class="upload-area"  id="uploadfile">
                                                     <span class="drag-drop">Drag and Drop file here<br/>Or<br/>Click to select file</span>
+                                                    
                                                 </div>
-                                            </div>                        
+                                            </div>                         -->
                                         </div>
                                     </div>
                                 </div>
@@ -467,8 +476,8 @@
 
     <script type="text/javascript" src="dist/jquery.min.js"></script>
     <script src="dist/app.js"></script>
-    <script type="text/javascript" src="../js/forms.js"></script>
-    <script type="text/javascript" src="../js/fileupload.js"></script>
+    <script type="text/javascript" src="js/forms.js"></script>
+    <script type="text/javascript" src="js/fileupload.js"></script>
 </body>
 
 </html>

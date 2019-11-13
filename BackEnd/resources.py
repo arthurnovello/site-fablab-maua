@@ -1,11 +1,53 @@
 from flask_restful import Resource, reqparse
-from flask import request
+from flask import request,jsonify
 import slack
+import os
 from models import CursoModel, PedidoModel, PessoaModel, SalaModel, \
                     SolicitacaoModel, SolicitanteModel, StatusModel
+from werkzeug.utils import secure_filename
+from run import app
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 # from flask_jwt_extended import jwt_required
 parser = reqparse.RequestParser()
 
+class Upload(Resource):
+    
+    def allowed_file(self,filename):
+	    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+    def post(self):
+        # check if the post request has the file part
+        if 'files[]' not in request.files:
+            resp = jsonify({'message' : 'No file part in the request'})
+            resp.status_code = 400
+            return resp
+        
+        files = request.files.getlist('files[]')
+        
+        errors = {}
+        success = False
+        
+        for file in files:
+            if file and self.allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                success = True
+            else:
+                errors[file.filename] = 'File type is not allowed'
+        
+        if success and errors:
+            errors['message'] = 'File(s) successfully uploaded'
+            resp = jsonify(errors)
+            resp.status_code = 206
+            return resp
+        if success:
+            resp = jsonify({'message' : 'Files successfully uploaded'})
+            resp.status_code = 201
+            return resp
+        else:
+            resp = jsonify(errors)
+            resp.status_code = 400
+            return resp
 
 class Pedido(Resource):
     # @jwt_required
@@ -19,7 +61,6 @@ class Pedido(Resource):
            pedido = PedidoModel.return_by_id(idfiltro)
            status = StatusModel.return_by_id_pedido(idfiltro)
            pedido['Status'] = status['Status']
-        #    print(pedido)
            return pedido
        else:
             verificacao = PessoaModel.return_by_email(email)
@@ -68,7 +109,7 @@ class Pedido(Resource):
                 id_pedido = novo_pedido.save_to_db()
                 novo_status = StatusModel(id_pedido=id_pedido)
                 novo_status.save_to_db()
-                slakc.send_alert(id_pedido)
+                slack.send_alert(id_pedido)
                 return {'message': 'Pedido criado com sucesso.'}, 201
             except Exception as e:
                 return {'message': 'Erro ao criar pedido.' + str(e)}, 500

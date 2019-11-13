@@ -7,7 +7,7 @@ import time
 # slack_client = SlackClient(os.environ.get('SLACK_BOT_FB'))
 starterbot_id = None
 slack_client = \
-        SlackClient('xoxb-556741523728-819299593268-zuw45dOP1AQ7RroeCbxrdFje')
+        SlackClient('xoxb-556741523728-819299593268-4CDx66f4JGrHhNZqwCouYofH')
 
 
 RTM_READ_DELAY = 1
@@ -56,18 +56,21 @@ def handle_command(command, channel):
     # This is where you start to implement more commands!
     if command.startswith(EXAMPLE_COMMAND):
         response = "Sure...write some more code then I can do that!"
-    elif command.startswith( "approve"):
+    elif command.startswith("approve"):
         #muda Status
         id = re.sub("[^0-9]", "", command)
         id_n = int(id)
-        varia = run.models.PedidoModel.atualizaAprovacao(id_n)
-        print(id_n)
-        print(id)
-        print(varia)
+        run.models.PedidoModel.atualizaAprovacao(id_n)
         response = "APROVADO!"
-
-
-    # Sends the response back to the channel
+	# elif command.startswith("adicionarcurso"):
+	# 	# status = re.sub("[^0-9]", "", command)
+	# 	curso = "cursoteste"
+	#  	try:
+	#  		run.models.CursoModel(curso=curso).save_to_db()
+	#  		response = "Curso " + curso + " adicionado"
+	#  	except:
+	#  		response = "Erro ao adicionar curso"
+    #  Sends the response back to the channel
     slack_client.api_call(
         "chat.postMessage",
         channel=channel,
@@ -76,11 +79,13 @@ def handle_command(command, channel):
 
 
 def send_alert(id):
-    pedido = PedidoModel.return_by_id(id)
-
-    slack_client.api_call(
+	pedido = run.models.PedidoModel.return_by_id(id)
+	pessoa = run.models.PessoaModel.return_by_id(pedido['Pedidos'][0]['id_pessoa'])
+	solicitacao = run.models.SolicitacaoModel.return_by_id(pedido['Pedidos'][0]['id_solicitacao'])
+	sala = run.models.SalaModel.return_by_id(pedido['Pedidos'][0]['id_sala'])
+	slack_client.api_call(
         "chat.postMessage",
-        channel=channel,
+        channel="CQE3N774M",
         blocks=[
 		{
 			"type": "section",
@@ -94,31 +99,31 @@ def send_alert(id):
 			"fields": [
 				{
 					"type": "mrkdwn",
-					"text": "Nome:" + pedido['Pedidos'][0]['nome']
+					"text": "Nome: " + str(pessoa['Pessoa'][0]['nome'])
 				},
 				{
 					"type": "mrkdwn",
-					"text": "*E-mail:" + pedido['Pedidos'][0]['email']
+					"text": "E-mail: " + str(pessoa['Pessoa'][0]['email'])
 				},
 				{
 					"type": "mrkdwn",
-					"text": "*Tipo de Solicitação:"  + pedido['Pedidos'][0]['solicitacao']
+					"text": "Tipo de Solicitação: "+ str(solicitacao['Solicitacao'][0]['solicitacao'])
 				},
 				{
 					"type": "mrkdwn",
-					"text": "Data:"  + pedido['Pedidos'][0]['data']
+					"text": "Data: "  + str(pedido['Pedidos'][0]['data'])
 				},
 				{
 					"type": "mrkdwn",
-					"text": "Sala:"   + pedido['Pedidos'][0]['sala']
+					"text": "Sala: " + str(sala['Sala'][0]['sala'])
 				},
                 {
 					"type": "mrkdwn",
-					"text": "*Duração:"   + pedido['Pedidos'][0]['duracao']
+					"text": "Duração:" + str(pedido['Pedidos'][0]['duracao']) + "horas"
 				},
                 {
 					"type": "mrkdwn",
-					"text": "Quantidade de pessoas:"   + pedido['Pedidos'][0]['pessoas']
+					"text": "Quantidade de pessoas: " + str(pedido['Pedidos'][0]['qtd_pessoas'])
 				}
 			]
 		},
@@ -129,7 +134,7 @@ def send_alert(id):
 					"type": "button",
 					"text": {
 						"type": "plain_text",
-						"emoji": true,
+						"emoji": True,
 						"text": "Aprovar"
 					},
 					"style": "primary",
@@ -139,7 +144,7 @@ def send_alert(id):
 					"type": "button",
 					"text": {
 						"type": "plain_text",
-						"emoji": true,
+						"emoji": True,
 						"text": "Recusar"
 					},
 					"style": "danger",
@@ -149,6 +154,8 @@ def send_alert(id):
 		}
 	]
     )
+	# oi = slack_client.api_call("channel.info", channel="CQE3N774M")
+	# print(oi)
 
 
 if __name__ == "__main__":
