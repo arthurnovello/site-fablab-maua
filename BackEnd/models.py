@@ -52,7 +52,7 @@ class PedidoModel(db.Model):
                 .filter(PessoaModel.email == email)))}
 
     @classmethod
-    def atualizaAprovacao(cls,id_pedido):
+    def atualizaAprovacao(cls, id_pedido):
         banco = cls.query.filter_by(id=id_pedido).first()
         banco.aprovado = True
         db.session.commit()
@@ -117,7 +117,7 @@ class CursoModel(db.Model):
                 cls.query.all()))}
 
     @classmethod
-    def delete_by_nome(cls,curso):
+    def delete_by_nome(cls, curso):
         cls.query.filter_by(curso=curso).delete()
         db.session.commit()
 
@@ -153,7 +153,7 @@ class SolicitanteModel(db.Model):
                 cls.query.all()))}
 
     @classmethod
-    def delete_by_nome(cls,solicitante):
+    def delete_by_nome(cls, solicitante):
         cls.query.filter_by(solicitante=solicitante).delete()
         db.session.commit()
 
@@ -188,7 +188,7 @@ class SalaModel(db.Model):
                 cls.query.all()))}
 
     @classmethod
-    def delete_by_nome(cls,sala):
+    def delete_by_nome(cls, sala):
         cls.query.filter_by(sala=sala).delete()
         db.session.commit()
 
@@ -224,7 +224,7 @@ class SolicitacaoModel(db.Model):
                 cls.query.all()))}
 
     @classmethod
-    def delete_by_nome(cls,solicitacao):
+    def delete_by_nome(cls, solicitacao):
         cls.query.filter_by(solicitacao=solicitacao).delete()
         db.session.commit()
 

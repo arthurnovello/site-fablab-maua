@@ -18,3 +18,7 @@ ENV
 BACKEND/__pycache__
 BackEnd/__pycache__
 */__pycache__/
+*/.DS_Store
+*/.vscode
+.vscode
+*.pyc
