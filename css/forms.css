@@ -1,0 +1,76 @@
+label{
+    margin-bottom: 0;
+}
+
+.form-group{
+    margin-bottom: 8px;
+}
+
+.outro{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    padding: 0 12px;
+    height: 1.75rem;
+    width: 50%;
+}
+
+.outro:focus{
+    border-color:#ccc;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.hide{
+    display: none;
+}
+
+#dropdownMenuButton{
+    width: 100%;
+}
+
+#filtroPedidos ul li{
+    list-style: none;
+}
+
+.upload-area{
+    width: 100%;
+    height: 200px;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    text-align: center;
+    overflow: auto;
+}
+
+.upload-area:hover{
+    cursor: pointer;
+}
+
+.upload-area h1{
+    text-align: center;
+    font-weight: normal;
+    font-family: sans-serif;
+    line-height: 50px;
+    color: darkslategray;
+}
+
+#file{
+    display: none;
+}
+
+/* Thumbnail */
+.thumbnail{
+    width: 80px;
+    height: 80px;
+    padding: 2px;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    float: left;
+}
+
+.size{
+    font-size:12px;
+}
