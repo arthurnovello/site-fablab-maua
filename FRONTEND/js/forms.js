@@ -77,31 +77,68 @@ $(document).ready(function () {
 
     $("#btnConsultar").click(function(evt){
       evt.preventDefault();
-      $("#filtroPedidos").html("");
+      // $("#filtroPedidos").html("");
       var result = $("#consultaPedido").serializeArray().reduce((acc, cur) => {
         return {
           ...acc,
           [cur.name]: cur.value
         }
       }, {});
-
+      // console.log("ooooo")
+      // console.log(result)
+      // console.log("ooooo")
       sendHttpRequest('POST', 'http://localhost:5000/Pedido/', result).then((res => {
         console.log(res)
         res.Status.forEach(option => {
-        console.log(option)
-        var ul = document.createElement('ul');
-        var liIDPedido = document.createElement('li');
-        var liAprovado = document.createElement('li');
-        var liMassa = document.createElement('li');
-        var liTempo = document.createElement('li');
-        var liConcluido = document.createElement('li');
-        var liTermino = document.createElement('li');
-        liIDPedido.innerHTML = "ID do pedido: " + option.id_pedido;
-        liAprovado.innerHTML = "Aprovado: " + res.Pedidos[0].aprovado;
-        liMassa.innerHTML = "Massa: " + option.massa;
-        liTempo.innerHTML = "Tempo: " + option.tempo;
-        liConcluido.innerHTML = "Concluído: " + option.concluido;
-        liTermino.innerHTML = "Término: " + option.termino;
+          var table = document.getElementById("tabelaFiltro").getElementsByTagName('tbody')[0];
+          var row = table.insertRow(0);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+          var cell6 = row.insertCell(5);
+          cell1.innerHTML = option.id_pedido;
+          cell2.innerHTML = res.Pedidos[0].aprovado;
+          cell3.innerHTML = option.massa;
+          cell4.innerHTML = option.tempo;
+          cell5.innerHTML = option.concluido;
+          cell6.innerHTML = option.termino;
+        // var table = document.createElement('table')
+    //     var body = document.getElementById('filtroPedidos'),
+    //     tbl  = document.createElement('table');
+    // tbl.style.width  = '100px';
+    // tbl.style.border = '1px solid black';
+
+    // for(var i = 0; i < 1; i++){
+    //     var tr = tbl.insertRow();
+    //     for(var j = 0; j < 6; j++){
+    //         if(i == 2 && j == 1){
+    //             break;
+    //         } else {
+    //             var td = tr.insertCell();
+    //             td.appendChild(document.createTextNode(option.id_pedido));
+    //             td.style.border = '1px solid black';
+    //             if(i == 1 && j == 1){
+    //                 td.setAttribute('rowSpan', '2');
+    //             }
+    //         }
+    //     }
+    // }
+    // body.appendChild(tbl);
+        // var ul = document.createElement('ul');
+        // var liIDPedido = document.createElement('li');
+        // var liAprovado = document.createElement('li');
+        // var liMassa = document.createElement('li');
+        // var liTempo = document.createElement('li');
+        // var liConcluido = document.createElement('li');
+        // var liTermino = document.createElement('li');
+        // liIDPedido.innerHTML = "ID do pedido: " + option.id_pedido;
+        // liAprovado.innerHTML = "Aprovado: " + res.Pedidos[0].aprovado;
+        // liMassa.innerHTML = "Massa: " + option.massa;
+        // liTempo.innerHTML = "Tempo: " + option.tempo;
+        // liConcluido.innerHTML = "Concluído: " + option.concluido;
+        // liTermino.innerHTML = "Término: " + option.termino;
         // console.log(option.termino);
         
         
@@ -111,13 +148,13 @@ $(document).ready(function () {
         // var liTermino = document.createElement('li').innerHTML(String(option.termino));
         // opt.value = option.concluido/termino/tempo/massa
        
-        ul.appendChild(liIDPedido);
-        ul.appendChild(liAprovado)
-        ul.appendChild(liMassa);
-        ul.appendChild(liTempo);
-        ul.appendChild(liConcluido);
-        ul.appendChild(liTermino);
-        document.getElementById('filtroPedidos').append(ul);
+        // ul.appendChild(liIDPedido);
+        // ul.appendChild(liAprovado)
+        // ul.appendChild(liMassa);
+        // ul.appendChild(liTempo);
+        // ul.appendChild(liConcluido);
+        // ul.appendChild(liTermino);
+        // document.getElementById('filtroPedidos').append(ul);
         });
         }));
       });

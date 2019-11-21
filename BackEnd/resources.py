@@ -57,11 +57,26 @@ class Pedido(Resource):
        nome = parametro.get('nome')
        if (nome == None):
            pedidofiltro = PedidoModel.return_by_email(email)
-           idfiltro = pedidofiltro['Pedidos'][len(pedidofiltro['Pedidos'])-1].get('id')
-           pedido = PedidoModel.return_by_id(idfiltro)
-           status = StatusModel.return_by_id_pedido(idfiltro)
-           pedido['Status'] = status['Status']
-           return pedido
+           pedidofiltro["Status"] = []
+           qtd = len(pedidofiltro['Pedidos'])
+           array = []
+           i = 0
+           while i<qtd:
+               array.append(pedidofiltro['Pedidos'][i].get('id'))
+               i=i+1
+           for k in array:
+               u = StatusModel.return_by_id_pedido(k)
+               if u["Status"] == None:
+                   pedidofiltro["Status"].append(None)
+               else:
+                   pedidofiltro["Status"].append(u["Status"][0])
+            #    print(u['Status'])
+        #    idfiltro = pedidofiltro['Pedidos'][len(pedidofiltro['Pedidos'])-1].get('id')
+        #    pedido = PedidoModel.return_by_id(idfiltro)
+        #    status = StatusModel.return_by_id_pedido(idfiltro)
+        #    print(u['Status'])
+        #    pedido['Status'] = status['Status']
+           return pedidofiltro
        else:
             verificacao = PessoaModel.return_by_email(email)
             try:

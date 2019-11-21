@@ -7,7 +7,7 @@ import time
 # slack_client = SlackClient(os.environ.get('SLACK_BOT_FB'))
 starterbot_id = None
 slack_client = \
-        SlackClient('xoxb-556741523728-819299593268-4CDx66f4JGrHhNZqwCouYofH')
+        SlackClient('')
 
 
 RTM_READ_DELAY = 1
@@ -60,16 +60,65 @@ def handle_command(command, channel):
         #muda Status
         id = re.sub("[^0-9]", "", command)
         id_n = int(id)
+
         run.models.PedidoModel.atualizaAprovacao(id_n)
-        response = "APROVADO!"
-	# elif command.startswith("adicionarcurso"):
-	# 	# status = re.sub("[^0-9]", "", command)
-	# 	curso = "cursoteste"
-	#  	try:
-	#  		run.models.CursoModel(curso=curso).save_to_db()
-	#  		response = "Curso " + curso + " adicionado"
-	#  	except:
-	#  		response = "Erro ao adicionar curso"
+        response = "Pedido" + id_n + " foi APROVADO!"
+    elif command.startswith("adicionarcurso"):
+        curso = command.partition(":")[2]
+        try:
+            run.models.CursoModel(curso=curso).save_to_db()
+            response = "Curso " + curso + " adicionado"
+        except:
+            response = "Erro ao adicionar curso"
+    elif command.startswith("excluircurso"):
+        curso = command.partition(":")[2]
+        try:
+            run.models.CursoModel.delete_by_nome(curso)
+            response = "Curso " + curso + " excluido"
+        except:
+            response = "Erro ao excluir curso"
+    elif command.startswith("adicionarsolicitacao"):
+        solicitacao = command.partition(":")[2]
+        try:
+            run.models.SolicitacaoModel(solicitacao=solicitacao).save_to_db()
+            response = "Solicitação " + solicitacao + " adicionado"
+        except:
+            response = "Erro ao adicionar curso"
+    elif command.startswith("excluirsolicitacao"):
+        solicitacao = command.partition(":")[2]
+        try:
+            run.models.SolicitacaoModel.delete_by_nome(solicitacao)
+            response = "Solicitacao " + solicitacao + " excluida"
+        except:
+            response = "Erro ao excluir curso"
+    elif command.startswith("adicionarsala"):
+        sala = command.partition(":")[2]
+        try:
+            run.models.SalaModel(sala=sala).save_to_db()
+            response = "Sala " + sala + " adicionada"
+        except:
+            response = "Erro ao adicionar sala"
+    elif command.startswith("excluirsala"):
+        sala = command.partition(":")[2]
+        try:
+            run.models.SalaModel.delete_by_nome(sala)
+            response = "Sala " + sala + " excluida"
+        except:
+            response = "Erro ao excluir curso"
+    elif command.startswith("adicionarsolicitante"):
+        solicitante = command.partition(":")[2]
+        try:
+            run.models.SolicitanteModel(solicitante=solicitante).save_to_db()
+            response = "Solicitante " + solicitante + " adicionado"
+        except:
+            response = "Erro ao adicionar solicitante"
+    elif command.startswith("excluirsolicitante"):
+        solicitante = command.partition(":")[2]
+        try:
+            run.models.SolicitanteModel.delete_by_nome(solicitante)
+            response = "Solicitante " + solicitante + " excluido"
+        except:
+            response = "Erro ao excluir solicitante"
     #  Sends the response back to the channel
     slack_client.api_call(
         "chat.postMessage",

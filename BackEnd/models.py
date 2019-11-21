@@ -117,8 +117,8 @@ class CursoModel(db.Model):
                 cls.query.all()))}
 
     @classmethod
-    def delete_by_id(cls, id):
-        cls.query.filter_by(id=id).delete()
+    def delete_by_nome(cls,curso):
+        cls.query.filter_by(curso=curso).delete()
         db.session.commit()
 
 
@@ -153,8 +153,8 @@ class SolicitanteModel(db.Model):
                 cls.query.all()))}
 
     @classmethod
-    def delete_by_id(cls, id):
-        cls.query.filter_by(id=id).delete()
+    def delete_by_nome(cls,solicitante):
+        cls.query.filter_by(solicitante=solicitante).delete()
         db.session.commit()
 
 
@@ -188,8 +188,8 @@ class SalaModel(db.Model):
                 cls.query.all()))}
 
     @classmethod
-    def delete_by_id(cls, id):
-        cls.query.filter_by(id=id).delete()
+    def delete_by_nome(cls,sala):
+        cls.query.filter_by(sala=sala).delete()
         db.session.commit()
 
 
@@ -224,8 +224,8 @@ class SolicitacaoModel(db.Model):
                 cls.query.all()))}
 
     @classmethod
-    def delete_by_id(cls, id):
-        cls.query.filter_by(id=id).delete()
+    def delete_by_nome(cls,solicitacao):
+        cls.query.filter_by(solicitacao=solicitacao).delete()
         db.session.commit()
 
 
