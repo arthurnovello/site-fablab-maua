@@ -32,9 +32,6 @@ import views
 import models
 import resources
 
-import views
-import models
-import resources
 
 api.add_resource(resources.Pedido, '/Pedido/')
 api.add_resource(resources.Curso, '/Curso/')
@@ -43,7 +40,8 @@ api.add_resource(resources.Solicitacao, '/Solicitacao/')
 api.add_resource(resources.Pessoa, '/Pessoa/')
 api.add_resource(resources.Sala, '/Sala/')
 api.add_resource(resources.Status, '/Status/')
-api.add_resource(resources.Upload,'/Upload')
+api.add_resource(resources.Upload, '/Upload')
+api.add_resource(resources.SlackResponse, '/SlackResponse')
 
 if __name__ == "__main__":
     app.run(debug=False)
