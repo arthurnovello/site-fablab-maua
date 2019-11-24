@@ -6,7 +6,7 @@ from models import CursoModel, PedidoModel, PessoaModel, SalaModel, \
                     SolicitacaoModel, SolicitanteModel, StatusModel
 from werkzeug.utils import secure_filename
 from run import app
-# from flask_jwt_extended import jwt_required
+
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 parser = reqparse.RequestParser()
@@ -54,7 +54,6 @@ class Upload(Resource):
 
 
 class Pedido(Resource):
-    # @jwt_required
     def post(self):
         parametro = request.get_json(force=True)
         email = parametro.get('email')
@@ -74,13 +73,6 @@ class Pedido(Resource):
                     pedidofiltro["Status"].append(None)
                 else:
                     pedidofiltro["Status"].append(u["Status"][0])
-            #    print(u['Status'])
-        #    idfiltro = pedidofiltro['Pedidos'][len(
-        #       pedidofiltro['Pedidos'])-1].get('id')
-        #    pedido = PedidoModel.return_by_id(idfiltro)
-        #    status = StatusModel.return_by_id_pedido(idfiltro)
-        #    print(u['Status'])
-        #    pedido['Status'] = status['Status']
             return pedidofiltro
         else:
             verificacao = PessoaModel.return_by_email(email)
@@ -104,7 +96,6 @@ class Pedido(Resource):
             data = parametro.get('data')
             duracao = parametro.get('duracao')
             qtd_pessoas = parametro.get('qtd_pessoas')
-            # aprovado = parametro.get('aprovado')
             prazo = parametro.get('prazo')
             descricao = parametro.get('descricao')
             material_proprio = parametro.get('material_proprio')
@@ -112,7 +103,6 @@ class Pedido(Resource):
                 material_proprio = True
             else:
                 material_proprio = False
-            # material_proprio = False
             novo_pedido = PedidoModel(
                 id_pessoa=id_pessoa,
                 id_solicitante=id_solicitante,
@@ -135,13 +125,11 @@ class Pedido(Resource):
             except Exception as e:
                 return {'message': 'Erro ao criar pedido.' + str(e)}, 500
 
-    # @jwt_required
     def get(self):
         parametro = request.get_json(force=True)
         email = parametro.get('email')
         return PedidoModel.return_by_email(email)
 
-    # @jwt_required
     def delete(self):
         parametro = request.get_json(force=True)
         id = parametro.get('id')
@@ -153,7 +141,6 @@ class Pedido(Resource):
 
 
 class Curso(Resource):
-    # @jwt_required
     def post(self):
         parametro = request.get_json(force=True)
         nomeCurso = parametro.get('curso')
@@ -164,26 +151,20 @@ class Curso(Resource):
         except Exception as e:
             return {'message': 'Erro ao criar curso.' + e}, 500
 
-    # @jwt_required
     def get(self):
-        # parametro = request.get_json(force=True)
-        # id = parametro.get('id')
-        # return CursoModel.return_by_id(id)
         return CursoModel.return_all()
 
-    # @jwt_required
     def delete(self):
         parametro = request.get_json(force=True)
-        id = parametro.get('id')
+        curso = parametro.get('curso')
         try:
-            CursoModel.delete_by_id(id)
+            CursoModel.delete_by_nome(curso)
             return {'message': 'Curso deletado com sucesso.'}, 200
         except Exception as e:
             return {'message': 'Erro ao deletar curso.' + e}, 500
 
 
 class Pessoa(Resource):
-    # @jwt_required
     def post(self):
         parametro = request.get_json(force=True)
         nome = parametro.get('nome')
@@ -199,13 +180,11 @@ class Pessoa(Resource):
             except Exception as e:
                 return {'message': 'Erro ao adicionar pessoa.' + e}, 500
 
-    # @jwt_required
     def get(self):
         parametro = request.get_json(force=True)
         email = parametro.get('email')
         return PessoaModel.return_by_email(email)
 
-    # @jwt_required
     def delete(self):
         parametro = request.get_json(force=True)
         id = parametro.get('id')
@@ -217,7 +196,6 @@ class Pessoa(Resource):
 
 
 class Sala(Resource):
-    # @jwt_required
     def post(self):
         parametro = request.get_json(force=True)
         nomeSala = parametro.get('sala')
@@ -228,26 +206,20 @@ class Sala(Resource):
         except Exception as e:
             return {'message': 'Erro ao adicionar sala.' + e}, 500
 
-    # @jwt_required
     def get(self):
-        # parametro = request.get_json(force=True)
-        # id = parametro.get('id')
-        # return SalaModel.return_by_id(id)
         return SalaModel.return_all()
 
-    # @jwt_required
     def delete(self):
         parametro = request.get_json(force=True)
-        id = parametro.get('id')
+        sala = parametro.get('sala')
         try:
-            SalaModel.delete_by_id(id)
+            SalaModel.delete_by_nome(sala)
             return {'message': 'Sala deletada com sucesso.'}, 200
         except Exception as e:
             return {'message': 'Erro ao deletar sala.' + e}, 500
 
 
 class Status(Resource):
-    # @jwt_required
     def post(self):
         parametro = request.get_json(force=True)
         id_pedido = parametro.get('id_pedido')
@@ -264,13 +236,11 @@ class Status(Resource):
         except Exception as e:
             return {'message': 'Erro ao criar status.' + e}, 500
 
-    # @jwt_required
     def get(self):
         parametro = request.get_json(force=True)
         id_pedido = parametro.get('id_pedido')
         return StatusModel.return_by_id_pedido(id_pedido)
 
-    # @jwt_required
     def delete(self):
         parametro = request.get_json(force=True)
         id = parametro.get('id')
@@ -282,7 +252,6 @@ class Status(Resource):
 
 
 class Solicitante(Resource):
-    # @jwt_required
     def post(self):
         parametro = request.get_json(force=True)
         nomeSolicitante = parametro.get('solicitante')
@@ -295,26 +264,20 @@ class Solicitante(Resource):
         except Exception as e:
             return {'message': 'Erro ao criar solicitante.' + e}, 500
 
-    # @jwt_required
     def get(self):
-        # parametro = request.get_json(force=True)
-        # id = parametro.get('id')
-        # return SolicitanteModel.return_by_id(id)
         return SolicitanteModel.return_all()
 
-    # @jwt_required
     def delete(self):
         parametro = request.get_json(force=True)
-        id = parametro.get('id')
+        solicitante = parametro.get('solicitante')
         try:
-            SolicitanteModel.delete_by_id(id)
+            SolicitanteModel.delete_by_nome(solicitante)
             return {'message': 'Solicitante deletado com sucesso.'}, 200
         except Exception as e:
             return {'message': 'Erro ao deletar solicitante.' + e}, 500
 
 
 class Solicitacao(Resource):
-    # @jwt_required
     def post(self):
         parametro = request.get_json(force=True)
         nomeSolicitacao = parametro.get('solicitacao')
@@ -327,19 +290,14 @@ class Solicitacao(Resource):
         except Exception as e:
             return {'message': 'Erro ao criar solicitacao.' + e}, 500
 
-    # @jwt_required
     def get(self):
-        # parametro = request.get_json(force=True)
-        # id = parametro.get('id')
-        # return SolicitacaoModel.return_by_id(id)
         return SolicitacaoModel.return_all()
 
-    # @jwt_required
     def delete(self):
         parametro = request.get_json(force=True)
-        id = parametro.get('id')
+        solicitacao = parametro.get('solicitacao')
         try:
-            SolicitacaoModel.delete_by_id(id)
+            SolicitacaoModel.delete_by_nome(solicitacao)
             return {'message': 'Solicitacao deletada com sucesso.'}, 200
         except Exception as e:
             return {'message': 'Erro ao deletar solicitacao.' + e}, 500

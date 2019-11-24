@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ab0fb1f5-d440-4227-a332-362eef51c25a",
+		"_postman_id": "1dce5547-c733-4342-a284-95c35e099948",
 		"name": "ATV4",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -25,7 +25,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -95,7 +95,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}",
+							"raw": "{\n\t\"curso\":\"nomeDoCurso\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -174,7 +174,42 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n                \"id_pessoa\": 1,\n                \"id_solicitante\": 1,\n                \"id_curso\": 5,\n                \"id_solicitacao\":1,\n                \"id_sala\":1,\n                \"data\":\"01/02/2018\",\n                \"duracao\":2,\n                \"qtd_pessoas\":1,\n                \"aprovado\":False,\n                \"prazo\":2,\n                \"descricao\":\"oi\",\n                \"material_proprio\":True\n}",
+							"raw": "{\n\t\t\t\t\"nome\": \"Luca\",\n\t\t\t\t\"email\": \"luca@luca.com\",\n                \"id_pessoa\": 1,\n                \"id_solicitante\": 1,\n                \"id_curso\": 5,\n                \"id_solicitacao\":1,\n                \"id_sala\":1,\n                \"data\":\"01/02/2018\",\n                \"duracao\":2,\n                \"qtd_pessoas\":1,\n                \"aprovado\":\"off\",\n                \"prazo\":2,\n                \"descricao\":\"oi\",\n                \"material_proprio\":\"on\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/Pedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:5000/Pedido",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 91\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -218,7 +253,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}",
+							"raw": "{\n\t\"email\":\"lucas_lutinho@hotmail.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -253,7 +288,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"pessoa\":\"nomeDaPessoa\"\n}",
+							"raw": "{\n\t\"nome\":\"nomeDaPessoa\",\n\t\"email\":\"Pessoa@email.com\",\n\t\"ra\":\"14.01203-9\"\n}",
 							"options": {
 								"raw": {
 									"language": "javascript"
@@ -288,7 +323,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}",
+							"raw": "{\n\t\"id\":10\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -332,7 +367,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -402,7 +437,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}",
+							"raw": "{\n\t\"sala\":\"nomeDaSala\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -446,7 +481,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -516,7 +551,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":5\n}",
+							"raw": "{\n\t\"solicitacao\":\"nomeDaSolicitacao\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -560,7 +595,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -630,7 +665,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}",
+							"raw": "{\n\t\"solicitante\":\"nomeDoSolicitante\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -674,7 +709,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id_pedido\":1\n}",
+							"raw": "{\n\t\"id_pedido\":90\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -733,10 +768,34 @@
 				{
 					"name": "localhost:5000/Status",
 					"request": {
-						"method": "GET",
-						"header": [],
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":69\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:5000/Status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Status"
+							]
 						}
 					},
 					"response": []
